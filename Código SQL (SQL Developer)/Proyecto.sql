@@ -1,5 +1,5 @@
 CREATE TABLE Persona(
-id_persona INTEGER,
+id_persona NUMBER GENERATED ALWAYS AS IDENTITY,
 cedula INTEGER,
 edad INTEGER,
 dirección VARCHAR(60),
@@ -8,7 +8,7 @@ PRIMARY KEY (id_persona)
 );
 
 CREATE TABLE ActaNacimiento(
-id_acta_nacimiento INTEGER,
+id_acta_nacimiento NUMBER GENERATED ALWAYS AS IDENTITY,
 nombres VARCHAR(40),
 apellidos VARCHAR(40),
 nacionalidad VARCHAR(20),
@@ -41,14 +41,14 @@ REFERENCES Persona(id_persona)
 );
 
 CREATE TABLE Equipo(
-id_equipo INTEGER,
+id_equipo NUMBER GENERATED ALWAYS AS IDENTITY,
 nombre_equipo VARCHAR (30),
 pais_origen VARCHAR(20),
 PRIMARY KEY (id_equipo)
 );
 
 CREATE TABLE Contrato(
-id_contrato INTEGER,
+id_contrato NUMBER GENERATED ALWAYS AS IDENTITY,
 codigo_contrato VARCHAR(10),
 fecha_inicio DATE,
 fecha_fin DATE,
