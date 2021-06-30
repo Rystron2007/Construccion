@@ -3,7 +3,7 @@ package Modelo;
 import java.util.Date;
 
 public class Equipo {
-
+    //Listo
     //Atributos pertenecientes a un Equipo
     private String nombreEquipo;
     private String paisOrigen;
@@ -12,6 +12,9 @@ public class Equipo {
     public Equipo(String nombreEquipo, String paisOrigen) {
         this.nombreEquipo = nombreEquipo;
         this.paisOrigen = paisOrigen;
+    }
+
+    public Equipo() {
     }
 
     //Método para Crear un Contrato asociación un Director Técnico Existente

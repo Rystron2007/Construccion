@@ -19,16 +19,19 @@ public class EquipoDB implements CRUD {
     @Override
     public void registrar(String query, Object objeto) {
         Equipo equipo = (Equipo) objeto;
+        int answer = 0;
         try {
             conector = Conexion.getConnection();
             ps = conector.prepareStatement(query);
             ps.setString(1, equipo.getNombreEquipo());
             ps.setString(2, equipo.getPaisOrigen());
-            ps.executeUpdate();
+            answer = ps.executeUpdate();
+            if (answer == 1) {
+                System.out.println("Exito!");
+            }
         } catch (SQLException ex) {
             Logger.getLogger(EquipoDB.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     @Override
@@ -37,43 +40,49 @@ public class EquipoDB implements CRUD {
             conector = Conexion.getConnection();
             ps = conector.prepareStatement(query);
             ps.executeUpdate();
-        } catch (Exception e) {
-
+        } catch (SQLException ex) {
+            Logger.getLogger(EquipoDB.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     @Override
     public void listar(String query) {
-        List<ActaNacimiento> datos = new ArrayList<>();
+        List<Equipo> datos = new ArrayList<>();
         try {
             conector = Conexion.getConnection();
             ps = conector.prepareStatement(query);
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                ActaNacimiento acta = new ActaNacimiento();
-                acta.setNUI(rs.getString(1));
-                acta.setNombres(rs.getString(2));
-                acta.setApellidos(rs.getString(3));
-                acta.setNacionalidad(rs.getString(4));
-                datos.add(acta);
+                Equipo equipo = new Equipo();
+                equipo.setNombreEquipo(rs.getString(2));
+                equipo.setPaisOrigen(rs.getString(3));
+                datos.add(equipo);
             }
-        } catch (Exception e) {
+            for (Equipo dato : datos) {
+                System.out.println("Datos: " + dato.getNombreEquipo() +"--"+ dato.getPaisOrigen());
+            }
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(EquipoDB.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     @Override
     public void modificar(String query, Object objeto) {
-        ActaNacimiento acta = (ActaNacimiento) objeto;
+        Equipo equipo = (Equipo) objeto;
+        int answer = 0;
         try {
             conector = Conexion.getConnection();
             ps = conector.prepareStatement(query);
-            ps.setString(1, acta.getNUI());
-            ps.setString(2, acta.getNombres());
-            ps.setString(3, acta.getApellidos());
-            ps.setString(4, acta.getNacionalidad());
-            ps.executeUpdate();
-        } catch (Exception e) {
+            ps.setString(1, equipo.getNombreEquipo());
+            ps.setString(2, equipo.getPaisOrigen());
+            answer = ps.executeUpdate();
+            if (answer == 1) {
+                System.out.println("Modificado Exitosamente!");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EquipoDB.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

@@ -16,10 +16,8 @@ public class Conexion {
     public static Connection getConnection() {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            //Class.forName("oracle.jdbc.OracleDriver");
-            String myDB = "jdbc:oracle:thin:@//localhost:1521/xe";
-            //Connection cnx = DriverManager.getConnection(myDB, "SYSTEM", "ANHN2007");
-            Connection cnx = DriverManager.getConnection(myDB, "SYSTEM", "1234");
+            String myDB = "jdbc:oracle:thin:@//localhost:1522/xe";
+            Connection cnx = DriverManager.getConnection(myDB, "SYSTEM", "ANHN2007");
             if (cnx != null) {
                 System.out.println("Conectado Exitosamente!");
             }

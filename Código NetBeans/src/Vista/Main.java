@@ -8,6 +8,7 @@ package Vista;
 import Modelo.Conexion;
 import Modelo.Contrato;
 import Modelo.Equipo;
+import Modelo.EquipoDB;
 import Modelo.Estado;
 
 /**
@@ -17,25 +18,19 @@ import Modelo.Estado;
 public class Main {
 
     public static void main(String[] args) {
-        //Creación del Equipo
-        /*Equipo equipo = new Equipo("UG2021", "Ecuador");
-        System.out.println("Se procederá a crear un nuevo Contrato");
-        Contrato test = equipo.crearContrato();
-        System.out.println("Estado del Contrato: " + test.getEstado());
-        //Cambio de Estado del Contrato (PENDIENTE --> ACEPTADO)
-        test.setEstado(Estado.ACEPTADO);
-        //Test Para Comprobar la Creación del Contrato y del Director Técnico
-        if (test != null) {
-            System.out.println("¡Contrato Creado Satisfactoriamente!\n");
-            System.out.println("Datos del Contrato");
-            System.out.println("Código: " + test.getCodigoContrato()
-                    + "\nFecha Inicio: " + test.getFechaInicio()
-                    + "\nFecha Fin: " + test.getFechaFin()
-                    + "\nEstado: " + test.getEstado()
-                    + "\nDatos Director Técnico\n" + test.getDirectorTecnico().obtenerActaNacimiento());
-        }*/
-        Conexion.getConnection();
-
+        Equipo equipo = new Equipo("UG2022", "Ecuador");
+        EquipoDB conector = new EquipoDB();
+        String query = "insert into Equipo (nombre_equipo, pais_origen) values (?,?)";
+        conector.registrar(query, equipo);
+        query = "update Equipo SET nombre_equipo = ?, pais_origen = ? where id_equipo = 1";
+        conector.modificar(query, equipo);
+        query = "select * from Equipo";
+        conector.listar(query);
+        query = "delete from Equipo where id_equipo = 1";
+        conector.remover(query);
+        query = "select * from Equipo";
+        conector.listar(query);
         
+        //Fin
     }
 }
