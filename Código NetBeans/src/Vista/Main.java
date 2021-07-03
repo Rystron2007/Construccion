@@ -18,7 +18,7 @@ import Modelo.Estado;
 public class Main {
 
     public static void main(String[] args) {
-        Equipo equipo = new Equipo("UG2022", "Ecuador");
+       /* Equipo equipo = new Equipo("UG2022", "Ecuador");
         EquipoDB conector = new EquipoDB();
         String query = "insert into Equipo (nombre_equipo, pais_origen) values (?,?)";
         conector.registrar(query, equipo);
@@ -30,7 +30,9 @@ public class Main {
         conector.remover(query);
         query = "select * from Equipo";
         conector.listar(query);
-        
+        */
+        Equipos equipo = new Equipos();
+        equipo.setVisible(true);
         //Fin
     }
 }
