@@ -1,4 +1,4 @@
-package Modelo;
+package Modelo.Simples;
 
 //Tipos de Estado para el Contrato
 public enum Estado {

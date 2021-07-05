@@ -5,8 +5,8 @@
  */
 package Controlador;
 
-import Modelo.Equipo;
-import Modelo.EquipoDB;
+import Modelo.Simples.Equipo;
+import Modelo.DataBase.EquipoDB;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;

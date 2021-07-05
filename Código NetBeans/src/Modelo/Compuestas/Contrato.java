@@ -1,5 +1,7 @@
-package Modelo;
+package Modelo.Compuestas;
 
+import Modelo.Simples.DirectorTecnico;
+import Modelo.Simples.Estado;
 import java.util.Date;
 
 public class Contrato {

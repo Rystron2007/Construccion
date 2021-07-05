@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Modelo;
+package Modelo.Interfaces;
 
 public interface CRUD {
     public void registrar(String query, Object objeto);

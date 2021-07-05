@@ -1,5 +1,8 @@
-package Modelo;
+package Modelo.DataBase;
 
+import Modelo.Interfaces.CRUD;
+import Modelo.DataBase.Conexion;
+import Modelo.Simples.Equipo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,8 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
 
 public class EquipoDB implements CRUD {
 
@@ -35,7 +36,7 @@ public class EquipoDB implements CRUD {
             Logger.getLogger(EquipoDB.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public void modificar(String query, Object objeto) {
         Equipo equipo = (Equipo) objeto;
         int answer = 0;
@@ -53,9 +54,10 @@ public class EquipoDB implements CRUD {
             Logger.getLogger(EquipoDB.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void modificar2(String query, Object objeto,Object ob ) {
+
+    public void modificar2(String query, Object objeto, Object ob) {
         Equipo equipo = (Equipo) objeto;
-        Equipo antiguo=(Equipo) ob;
+        Equipo antiguo = (Equipo) ob;
         int answer = 0;
         //query="update equipo set nombre_equipo=?, pais_origen=? where nombre_equipo=?";
         try {
@@ -86,8 +88,8 @@ public class EquipoDB implements CRUD {
 
     @Override
     //Metodo para imprimir en consola
-    public void listar( String nombre) {
-        String query = "select nombre_equipo, pais_origen from Equipo where nombre_equipo = "+nombre;
+    public void listar(String nombre) {
+        String query = "select nombre_equipo, pais_origen from Equipo where nombre_equipo = " + nombre;
         List<Equipo> datos = new ArrayList<>();
         try {
             conector = Conexion.getConnection();
@@ -101,17 +103,17 @@ public class EquipoDB implements CRUD {
                 datos.add(equipo);
             }
             for (Equipo dato : datos) {
-                
+
             }
-           
+
         } catch (SQLException ex) {
             Logger.getLogger(EquipoDB.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public List lista() {
         List<Equipo> datos = new ArrayList<>();
-        String query ="select nombre_equipo, pais_origen from Equipo";
+        String query = "select nombre_equipo, pais_origen from Equipo";
         try {
             conector = Conexion.getConnection();
             ps = conector.prepareStatement(query);
@@ -123,13 +125,11 @@ public class EquipoDB implements CRUD {
                 equipo.setPaisOrigen(rs.getString("pais_origen"));
                 datos.add(equipo);
             }
-           
+
         } catch (SQLException ex) {
             Logger.getLogger(EquipoDB.class.getName()).log(Level.SEVERE, null, ex);
         }
         return datos;
     }
 
-   
-    
 }

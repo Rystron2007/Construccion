@@ -5,11 +5,12 @@
  */
 package Vista;
 
-import Modelo.Conexion;
-import Modelo.Contrato;
-import Modelo.Equipo;
-import Modelo.EquipoDB;
-import Modelo.Estado;
+import Vista.Equipo.Equipos;
+import Modelo.DataBase.Conexion;
+import Modelo.Compuestas.Contrato;
+import Modelo.Simples.Equipo;
+import Modelo.DataBase.EquipoDB;
+import Modelo.Simples.Estado;
 
 /**
  *

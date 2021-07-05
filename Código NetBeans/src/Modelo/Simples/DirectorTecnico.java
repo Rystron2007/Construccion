@@ -1,6 +1,9 @@
-package Modelo;
+package Modelo.Simples;
+
+import Modelo.Compuestas.Persona;
 
 public class DirectorTecnico extends Persona {
+
     //Cantidad de Equipos Dirigidos con Anterioridad (Experiencia)
     private int equiposDirigidos;
 

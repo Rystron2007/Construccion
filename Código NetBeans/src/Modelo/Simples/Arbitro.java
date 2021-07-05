@@ -1,4 +1,6 @@
-package Modelo;
+package Modelo.Simples;
+
+import Modelo.Compuestas.Persona;
 
 public class Arbitro extends Persona {
 

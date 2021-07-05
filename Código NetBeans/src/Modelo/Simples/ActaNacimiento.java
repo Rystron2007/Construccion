@@ -1,4 +1,4 @@
-package Modelo;
+package Modelo.Simples;
 
 public class ActaNacimiento {
 
@@ -9,7 +9,7 @@ public class ActaNacimiento {
     private String nacionalidad;
 
     //Constructor Parametrizado
-    public ActaNacimiento(String NUI,String nombres, String apellidos, String nacionalidad) {
+    public ActaNacimiento(String NUI, String nombres, String apellidos, String nacionalidad) {
         this.NUI = NUI;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -52,7 +52,5 @@ public class ActaNacimiento {
     public void setNUI(String NUI) {
         this.NUI = NUI;
     }
-    
-    
 
 }

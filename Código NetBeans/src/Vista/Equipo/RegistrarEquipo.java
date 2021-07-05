@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vista;
+package Vista.Equipo;
 
 import Controlador.Administrar_Equipo;
 import javax.swing.JOptionPane;
@@ -42,7 +42,6 @@ public class RegistrarEquipo extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Registrar Equipo");
 
         jLabel2.setText("Nombre:");

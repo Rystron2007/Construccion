@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vista;
+package Vista.Equipo;
 
 /**
  *
@@ -42,7 +42,7 @@ public class Equipos extends javax.swing.JFrame {
         jLabel1.setText("Equipos");
 
         registrarEquipos.setText("Registrar Equipos ");
-        registrarEquipos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        registrarEquipos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         registrarEquipos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 registrarEquiposMouseClicked(evt);

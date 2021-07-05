@@ -1,4 +1,6 @@
-package Modelo;
+package Modelo.Compuestas;
+
+import Modelo.Simples.ActaNacimiento;
 
 public class Persona {
 
@@ -24,7 +26,9 @@ public class Persona {
 
     //Método para Obtener los Datos de la Acta de Nacimiento
     public String obtenerActaNacimiento() {
-        return "Nombres: " + actaNacimiento.getNombres() + "\nApellidos: " + actaNacimiento.getApellidos()
+        return "NUI: " + actaNacimiento.getNUI()
+                + "Nombres: " + actaNacimiento.getNombres()
+                + "\nApellidos: " + actaNacimiento.getApellidos()
                 + "\nNacionalidad: " + actaNacimiento.getNacionalidad();
     }
 
