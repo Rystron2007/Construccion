@@ -110,18 +110,18 @@ public class BuscarEquipo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscar_nombActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar_nombActionPerformed
-        Mostrar_Equipos_Nombre equipo = new Mostrar_Equipos_Nombre();
+        FrameBuscar equipo = new FrameBuscar();
         equipo.setVisible(true);
     }//GEN-LAST:event_buscar_nombActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
-        Equipos equipo =new Equipos();
+        FrameEquipo equipo =new FrameEquipo();
         equipo.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_volverActionPerformed
 
     private void mostrar_EqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrar_EqActionPerformed
-        Mostrar_Equipos equipos= new Mostrar_Equipos();
+        FrameListar equipos= new FrameListar();
         equipos.setVisible(true);
     }//GEN-LAST:event_mostrar_EqActionPerformed
 

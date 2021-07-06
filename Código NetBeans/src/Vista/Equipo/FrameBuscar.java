@@ -11,16 +11,16 @@ import Controlador.EquipoControl;
  *
  * @author Lozano
  */
-public class Mostrar_Equipos_Nombre extends javax.swing.JFrame {
+public class FrameBuscar extends javax.swing.JFrame {
 
     /**
      * Creates new form Mostrar_Equipos
      */
     boolean validar=false;
-    public Mostrar_Equipos_Nombre() {
+    public FrameBuscar() {
         initComponents();
     }
-    public Mostrar_Equipos_Nombre( boolean validar) {
+    public FrameBuscar( boolean validar) {
         initComponents();
         this.validar=validar;
     }
@@ -122,7 +122,7 @@ public class Mostrar_Equipos_Nombre extends javax.swing.JFrame {
         EquipoControl equipo= new EquipoControl();
         equipo.buscarEquipo(tabla_Eq,nombre);
         if(validar){
-            ModificarEquipo vent =new ModificarEquipo(nombre);
+            FrameModificar vent =new FrameModificar(nombre);
             vent.setVisible(true);
         }
     }//GEN-LAST:event_buscarActionPerformed
@@ -144,21 +144,23 @@ public class Mostrar_Equipos_Nombre extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Mostrar_Equipos_Nombre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameBuscar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Mostrar_Equipos_Nombre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameBuscar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Mostrar_Equipos_Nombre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameBuscar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Mostrar_Equipos_Nombre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameBuscar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Mostrar_Equipos_Nombre().setVisible(true);
+                new FrameBuscar().setVisible(true);
             }
         });
     }

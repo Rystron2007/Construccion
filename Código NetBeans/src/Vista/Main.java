@@ -5,7 +5,7 @@
  */
 package Vista;
 
-import Vista.Equipo.Equipos;
+import Vista.Equipo.FrameEquipo;
 import Modelo.DataBase.Conexion;
 import Modelo.Compuestas.Contrato;
 import Modelo.Simples.Equipo;
@@ -19,7 +19,7 @@ import Modelo.Simples.Estado;
 public class Main {
 
     public static void main(String[] args) {
-        Equipos equipo = new Equipos();
+        FrameEquipo equipo = new FrameEquipo();
         equipo.setVisible(true);
     }
 }
