@@ -5,7 +5,7 @@
  */
 package Vista.Equipo;
 
-import Controlador.Administrar_Equipo;
+import Controlador.EquipoControl;
 
 /**
  *
@@ -119,8 +119,8 @@ public class Mostrar_Equipos_Nombre extends javax.swing.JFrame {
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
         String nombre = txtNombre.getText();
-        Administrar_Equipo equipo= new Administrar_Equipo();
-        equipo.Buscar_db(tabla_Eq,nombre);
+        EquipoControl equipo= new EquipoControl();
+        equipo.buscarEquipo(tabla_Eq,nombre);
         if(validar){
             ModificarEquipo vent =new ModificarEquipo(nombre);
             vent.setVisible(true);

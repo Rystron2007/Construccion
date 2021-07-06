@@ -7,7 +7,7 @@ package Modelo.Interfaces;
 
 public interface CRUD {
     public void registrar(String query, Object objeto);
-    public void remover(String query);
     public void listar(String query);
     public void modificar(String query, Object objeto);
+    public void remover(String query);
 }

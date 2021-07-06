@@ -12,7 +12,7 @@ package Vista.Equipo;
 public class Equipos extends javax.swing.JFrame {
 
     /**
-     * Creates new form RegistrarEquipo
+     * Creates new form FrameRegistrar
      */
     public Equipos() {
         initComponents();
@@ -116,7 +116,7 @@ public class Equipos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registrarEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarEquiposActionPerformed
-        RegistrarEquipo equipo =new RegistrarEquipo();
+        FrameRegistrar equipo =new FrameRegistrar();
         equipo.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_registrarEquiposActionPerformed

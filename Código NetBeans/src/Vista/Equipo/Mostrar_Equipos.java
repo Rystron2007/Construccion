@@ -5,7 +5,7 @@
  */
 package Vista.Equipo;
 
-import Controlador.Administrar_Equipo;
+import Controlador.EquipoControl;
 
 /**
  *
@@ -51,7 +51,7 @@ public class Mostrar_Equipos extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabla_Eq);
 
-        mostrar.setText("Mostar");
+        mostrar.setText("Mostrar");
         mostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mostrarActionPerformed(evt);
@@ -103,8 +103,8 @@ public class Mostrar_Equipos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarActionPerformed
-        Administrar_Equipo equipo= new Administrar_Equipo();
-        equipo.Buscar_db(tabla_Eq);
+        EquipoControl equipo= new EquipoControl();
+        equipo.listarEquipo(tabla_Eq);
     }//GEN-LAST:event_mostrarActionPerformed
 
     /**

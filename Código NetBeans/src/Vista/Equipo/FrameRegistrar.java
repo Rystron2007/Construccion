@@ -1,23 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vista.Equipo;
 
-import Controlador.Administrar_Equipo;
+import Controlador.EquipoControl;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Lozano
- */
-public class RegistrarEquipo extends javax.swing.JFrame {
+public class FrameRegistrar extends javax.swing.JFrame {
 
     /**
      * Creates new form RegistrarEquipo
      */
-    public RegistrarEquipo() {
+    public FrameRegistrar() {
         initComponents();
     }
 
@@ -33,9 +24,9 @@ public class RegistrarEquipo extends javax.swing.JFrame {
         panelRegisEquipo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
+        txtNombreEquipo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtPais_origen = new javax.swing.JTextField();
+        txtPaisOrigen = new javax.swing.JTextField();
         btnGuardar = new javax.swing.JButton();
         volver = new javax.swing.JButton();
 
@@ -78,9 +69,9 @@ public class RegistrarEquipo extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(18, 18, 18)
                         .addGroup(panelRegisEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                            .addComponent(txtNombreEquipo, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
                             .addGroup(panelRegisEquipoLayout.createSequentialGroup()
-                                .addComponent(txtPais_origen)
+                                .addComponent(txtPaisOrigen)
                                 .addGap(110, 110, 110)))))
                 .addGap(103, 103, 103))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegisEquipoLayout.createSequentialGroup()
@@ -101,11 +92,11 @@ public class RegistrarEquipo extends javax.swing.JFrame {
                 .addGap(47, 47, 47)
                 .addGroup(panelRegisEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombreEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(panelRegisEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtPais_origen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPaisOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(btnGuardar)
                 .addGap(18, 18, 18)
@@ -128,20 +119,21 @@ public class RegistrarEquipo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        String nombre= txtNombre.getText();
-        String pais= txtPais_origen.getText();
-        if((nombre == "")&&(pais =="")){
-            JOptionPane.showMessageDialog(null, "Ingrese el nombre y el pais de origen");
+        if (validarCampos() == 1) {
+            JOptionPane.showMessageDialog(null, "Porfavor, complete todos los campos.", "Campos Incompletos", JOptionPane.WARNING_MESSAGE);
+        } else {
+            String nombreEquipo = txtNombreEquipo.getText();
+            String paisOrigen = txtPaisOrigen.getText();
+            EquipoControl equipoControl = new EquipoControl(nombreEquipo, paisOrigen);
+            equipoControl.registrarEquipo();
         }
-        else{
-            Administrar_Equipo adminEq= new Administrar_Equipo(nombre,pais);
-            adminEq.Registrar_db();
-        }
-        
     }//GEN-LAST:event_btnGuardarActionPerformed
+    public int validarCampos() {
+        return txtNombreEquipo.getText().isEmpty() || txtPaisOrigen.getText().isEmpty() ? 1 : 0;
+    }
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
-        Equipos equipo =new Equipos();
+        Equipos equipo = new Equipos();
         equipo.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_volverActionPerformed
@@ -163,20 +155,21 @@ public class RegistrarEquipo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistrarEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistrarEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistrarEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistrarEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegistrarEquipo().setVisible(true);
+                new FrameRegistrar().setVisible(true);
             }
         });
     }
@@ -187,8 +180,8 @@ public class RegistrarEquipo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel panelRegisEquipo;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtPais_origen;
+    private javax.swing.JTextField txtNombreEquipo;
+    private javax.swing.JTextField txtPaisOrigen;
     private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

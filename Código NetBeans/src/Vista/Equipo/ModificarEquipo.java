@@ -5,7 +5,7 @@
  */
 package Vista.Equipo;
 
-import Controlador.Administrar_Equipo;
+import Controlador.EquipoControl;
 
 /**
  *
@@ -137,9 +137,9 @@ public class ModificarEquipo extends javax.swing.JFrame {
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         String nombre1=txtNombre.getText();
         String pais=txtpais.getText();
-        Administrar_Equipo adminEq= new Administrar_Equipo(nombre1,pais);
-        adminEq.Modificar(nombre);
-        adminEq.Buscar_db(tabla_Eq,nombre1);
+        EquipoControl adminEq= new EquipoControl(nombre1,pais);
+        adminEq.actualizarEquipo(nombre);
+        adminEq.buscarEquipo(tabla_Eq,nombre1);
     }//GEN-LAST:event_btnModificarActionPerformed
 
     /**
