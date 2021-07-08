@@ -24,12 +24,13 @@ public class EquipoControl {
     private Equipo equipo;
     private EquipoDB conector;
     private DefaultTableModel tableModel;
-
+    
+//Constructor sin parametros usados para las busquedas 
     public EquipoControl() {
         conector= new EquipoDB();
         tableModel= new DefaultTableModel();
     }
-
+//Constructor con parametros usados para los registros y modificaciones
     public EquipoControl(String nombre, String pais_origen) {
         this.nombreEquipo = nombre;
         this.pais_origen = pais_origen;
