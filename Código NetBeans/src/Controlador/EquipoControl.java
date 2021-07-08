@@ -26,16 +26,18 @@ public class EquipoControl {
     private DefaultTableModel tableModel;
 
     public EquipoControl() {
-
+        conector= new EquipoDB();
+        tableModel= new DefaultTableModel();
     }
 
     public EquipoControl(String nombre, String pais_origen) {
         this.nombreEquipo = nombre;
         this.pais_origen = pais_origen;
         this.equipo = new Equipo(this.nombreEquipo, this.pais_origen);
-        this.conector = new EquipoDB();
-        this.tableModel = new DefaultTableModel();
+        conector= new EquipoDB();
+        tableModel= new DefaultTableModel();
     }
+    
 
     public void registrarEquipo() {
         try {

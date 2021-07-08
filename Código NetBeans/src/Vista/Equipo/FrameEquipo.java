@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Vista.Equipo;
-
+import Controlador.*;
 /**
  *
  * @author Lozano
@@ -26,36 +26,17 @@ public class FrameEquipo extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
-        panelEp1 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        jPanel2 = new Establecer_fondo();
         buscarEquipos1 = new javax.swing.JButton();
         registrarEquipos = new javax.swing.JButton();
         modificarEquipos = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        panelEp1.setBackground(new java.awt.Color(0, 102, 204));
-        panelEp1.setName(""); // NOI18N
-        panelEp1.setLayout(new java.awt.BorderLayout());
-
-        jPanel1.setBackground(new java.awt.Color(0, 102, 204));
-
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("HP Simplified", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Módulo de Equipos");
-        jPanel1.add(jLabel1);
-
-        panelEp1.add(jPanel1, java.awt.BorderLayout.PAGE_START);
-
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel2.setLayout(new java.awt.GridBagLayout());
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         buscarEquipos1.setBackground(new java.awt.Color(255, 255, 255));
         buscarEquipos1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
@@ -66,11 +47,6 @@ public class FrameEquipo extends javax.swing.JFrame {
                 buscarEquipos1ActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(7, 0, 7, 0);
-        jPanel2.add(buscarEquipos1, gridBagConstraints);
 
         registrarEquipos.setBackground(new java.awt.Color(255, 255, 255));
         registrarEquipos.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
@@ -87,12 +63,6 @@ public class FrameEquipo extends javax.swing.JFrame {
                 registrarEquiposActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(7, 0, 7, 0);
-        jPanel2.add(registrarEquipos, gridBagConstraints);
 
         modificarEquipos.setBackground(new java.awt.Color(255, 255, 255));
         modificarEquipos.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
@@ -103,24 +73,55 @@ public class FrameEquipo extends javax.swing.JFrame {
                 modificarEquiposActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(7, 0, 7, 0);
-        jPanel2.add(modificarEquipos, gridBagConstraints);
 
-        panelEp1.add(jPanel2, java.awt.BorderLayout.CENTER);
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("HP Simplified", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Módulo de Equipos");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(197, 197, 197)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(registrarEquipos)
+                            .addComponent(buscarEquipos1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(187, 187, 187)
+                        .addComponent(modificarEquipos, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(66, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel1)
+                .addGap(55, 55, 55)
+                .addComponent(buscarEquipos1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(registrarEquipos)
+                .addGap(27, 27, 27)
+                .addComponent(modificarEquipos)
+                .addContainerGap(70, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelEp1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelEp1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -144,7 +145,7 @@ public class FrameEquipo extends javax.swing.JFrame {
     }//GEN-LAST:event_modificarEquiposActionPerformed
 
     private void buscarEquipos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarEquipos1ActionPerformed
-        BuscarEquipo buscar= new BuscarEquipo();
+        FrameBuscar buscar= new FrameBuscar();
         buscar.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buscarEquipos1ActionPerformed
@@ -190,10 +191,8 @@ public class FrameEquipo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscarEquipos1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton modificarEquipos;
-    private javax.swing.JPanel panelEp1;
     private javax.swing.JButton registrarEquipos;
     // End of variables declaration//GEN-END:variables
 }

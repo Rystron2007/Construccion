@@ -24,9 +24,9 @@ public class Conexion {
     }
 
     public static void iniciarDatos() {
-        Conexion.databaseURL = "jdbc:oracle:thin:@//localhost:1522/xe";
+        Conexion.databaseURL = "jdbc:oracle:thin:@//localhost:1521/xe";
         Conexion.user = "SYSTEM";
-        Conexion.password = "ANHN2007";
+        Conexion.password = "1234";
     }
 
     public static Connection iniciarConexion() throws SQLException {
