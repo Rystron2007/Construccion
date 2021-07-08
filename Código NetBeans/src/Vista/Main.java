@@ -6,11 +6,6 @@
 package Vista;
 
 import Vista.Equipo.FrameEquipo;
-import Modelo.DataBase.Conexion;
-import Modelo.Compuestas.Contrato;
-import Modelo.Simples.Equipo;
-import Modelo.DataBase.EquipoDB;
-import Modelo.Simples.Estado;
 
 /**
  *

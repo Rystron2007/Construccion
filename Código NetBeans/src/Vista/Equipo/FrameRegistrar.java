@@ -21,16 +21,18 @@ public class FrameRegistrar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelRegisEquipo = new Establecer_fondo();
+        panelRegisEquipo = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
         txtPaisOrigen = new javax.swing.JTextField();
         txtNombreEquipo = new javax.swing.JTextField();
         btnVolver = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        lblPais = new javax.swing.JLabel();
+        BarraTop = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         btnGuardar.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnGuardar.setText("Guardar");
@@ -40,14 +42,19 @@ public class FrameRegistrar extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jLabel2.setText("Nombre:");
+        lblNombre.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        lblNombre.setText("Nombre:");
 
+        txtPaisOrigen.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtPaisOrigen.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPaisOrigen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPaisOrigenActionPerformed(evt);
             }
         });
+
+        txtNombreEquipo.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtNombreEquipo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         btnVolver.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnVolver.setText("Volver");
@@ -57,63 +64,62 @@ public class FrameRegistrar extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jLabel3.setText("Pais de origen:");
+        lblPais.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        lblPais.setText("Pais de origen:");
+
+        BarraTop.setBackground(new java.awt.Color(28, 11, 25));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("HP Simplified", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(236, 239, 244));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Registro");
+        BarraTop.add(jLabel1);
 
         javax.swing.GroupLayout panelRegisEquipoLayout = new javax.swing.GroupLayout(panelRegisEquipo);
         panelRegisEquipo.setLayout(panelRegisEquipoLayout);
         panelRegisEquipoLayout.setHorizontalGroup(
             panelRegisEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(BarraTop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelRegisEquipoLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(panelRegisEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                .addContainerGap()
                 .addGroup(panelRegisEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelRegisEquipoLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1))
+                        .addGroup(panelRegisEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelRegisEquipoLayout.createSequentialGroup()
+                                .addComponent(lblNombre)
+                                .addGap(236, 236, 236)
+                                .addComponent(btnVolver))
+                            .addGroup(panelRegisEquipoLayout.createSequentialGroup()
+                                .addComponent(lblPais)
+                                .addGap(41, 41, 41)
+                                .addGroup(panelRegisEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelRegisEquipoLayout.createSequentialGroup()
+                                        .addGap(1, 1, 1)
+                                        .addComponent(txtNombreEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtPaisOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panelRegisEquipoLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(txtNombreEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelRegisEquipoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPaisOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(181, Short.MAX_VALUE))
-            .addGroup(panelRegisEquipoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelRegisEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegisEquipoLayout.createSequentialGroup()
                         .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(203, 203, 203))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegisEquipoLayout.createSequentialGroup()
-                        .addComponent(btnVolver)
-                        .addGap(26, 26, 26))))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         panelRegisEquipoLayout.setVerticalGroup(
             panelRegisEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRegisEquipoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addGroup(panelRegisEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BarraTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addGroup(panelRegisEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNombreEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addGap(18, 18, 18)
+                .addGroup(panelRegisEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(txtPaisOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPais))
+                .addGap(25, 25, 25)
                 .addGroup(panelRegisEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtPaisOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addComponent(btnGuardar)
-                .addGap(3, 3, 3)
-                .addComponent(btnVolver)
-                .addGap(19, 19, 19))
+                    .addComponent(btnGuardar)
+                    .addComponent(btnVolver))
+                .addGap(15, 15, 15))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -191,11 +197,12 @@ public class FrameRegistrar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BarraTop;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblPais;
     private javax.swing.JPanel panelRegisEquipo;
     private javax.swing.JTextField txtNombreEquipo;
     private javax.swing.JTextField txtPaisOrigen;

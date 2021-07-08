@@ -24,21 +24,21 @@ public class EquipoControl {
     private Equipo equipo;
     private EquipoDB conector;
     private DefaultTableModel tableModel;
-    
+
 //Constructor sin parametros usados para las busquedas 
     public EquipoControl() {
-        conector= new EquipoDB();
-        tableModel= new DefaultTableModel();
+        this.conector = new EquipoDB();
+        this.tableModel = new DefaultTableModel();
     }
 //Constructor con parametros usados para los registros y modificaciones
+
     public EquipoControl(String nombre, String pais_origen) {
         this.nombreEquipo = nombre;
         this.pais_origen = pais_origen;
         this.equipo = new Equipo(this.nombreEquipo, this.pais_origen);
-        conector= new EquipoDB();
-        tableModel= new DefaultTableModel();
+        this.conector = new EquipoDB();
+        this.tableModel = new DefaultTableModel();
     }
-    
 
     public void registrarEquipo() {
         try {
@@ -53,7 +53,7 @@ public class EquipoControl {
     public void listarEquipo(JTable tabla) {
         try {
             tableModel = (DefaultTableModel) tabla.getModel();
-            List<Equipo> lista = conector.lista();
+            List<Equipo> lista = conector.listar();
             Object[] ob = new Object[2];
             for (int i = 0; i < lista.size(); i++) {
                 ob[0] = lista.get(i).getNombreEquipo();
@@ -71,7 +71,7 @@ public class EquipoControl {
         boolean validar = false;
         try {
             tableModel = (DefaultTableModel) tabla.getModel();
-            List<Equipo> lista = conector.lista();
+            List<Equipo> lista = conector.buscar(nombre);
             Object[] ob = new Object[2];
             for (int i = 0; i < lista.size(); i++) {
                 if (lista.get(i).getNombreEquipo().compareTo(nombre) == 0) {
@@ -91,7 +91,7 @@ public class EquipoControl {
                 JOptionPane.showMessageDialog(null, "No existe el equipo");
             }
 
-        } catch (Exception e) {
+        } catch (HeadlessException e) {
             JOptionPane.showMessageDialog(null, "No se pudo realizar la busqueda....Intentelo de nuevo");
         }
     }

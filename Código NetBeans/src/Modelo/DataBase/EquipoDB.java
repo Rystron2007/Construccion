@@ -101,30 +101,26 @@ public class EquipoDB implements CRUD {
 
     @Override
     //Metodo para imprimir en consola
-    public void listar(String nombre) {
-        String query = "select nombre_equipo, pais_origen from Equipo where nombre_equipo = " + nombre;
+    public List buscar(String nombre) {
+        String query = "select nombre_equipo, pais_origen from Equipo where nombre_equipo = '" + nombre + "'";
         List<Equipo> datos = new ArrayList<>();
         try {
             connector = Conexion.getConnection();
             statement = connector.prepareStatement(query);
             result = statement.executeQuery();
-
             while (result.next()) {
                 Equipo equipo = new Equipo();
-                equipo.setNombreEquipo(result.getString(2));
-                equipo.setPaisOrigen(result.getString(3));
+                equipo.setNombreEquipo(result.getString(1));
+                equipo.setPaisOrigen(result.getString(2));
                 datos.add(equipo);
             }
-            for (Equipo dato : datos) {
-
-            }
-
         } catch (SQLException ex) {
             Logger.getLogger(EquipoDB.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return datos;
     }
 
-    public List lista() {
+    public List listar() {
         List<Equipo> datos = new ArrayList<>();
         String query = "select nombre_equipo, pais_origen from Equipo";
         try {
