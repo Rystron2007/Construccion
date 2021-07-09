@@ -7,12 +7,13 @@ import javax.swing.JPanel;
 
 public class Establecer_fondo extends JPanel {
 
-    
     private Image imagen;
     private String url;
-    public Establecer_fondo(String url){
-        this.url=url;
+
+    public Establecer_fondo(String url) {
+        this.url = url;
     }
+
     @Override
     //Metodo que permite establecer el fondo a las ventanas
     public void paint(Graphics g) {

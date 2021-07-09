@@ -6,6 +6,7 @@
 package Vista;
 
 import Vista.Equipo.FrameEquipo;
+import Vista.Personas.FramePersona;
 
 /**
  *
