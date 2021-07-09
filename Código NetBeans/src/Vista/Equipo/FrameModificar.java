@@ -34,7 +34,7 @@ public class FrameModificar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new Establecer_fondo();
+        jPanel1 = new Establecer_fondo("/imagenes/fondo1.jpg");
         jLabel2 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
