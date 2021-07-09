@@ -36,7 +36,7 @@ public class FrameBuscar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel_mostrar = new Establecer_fondo();
+        panel_mostrar = new Establecer_fondo("/imagenes/fondo1.jpg");
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_Eq = new javax.swing.JTable();
         buscar = new javax.swing.JButton();
