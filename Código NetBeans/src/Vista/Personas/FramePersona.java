@@ -32,10 +32,10 @@ public class FramePersona extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new Establecer_fondo("/imagenes/fondo1.jpg");
         btnRegistrarArb = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnModificarArb = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnRegistrarDT = new javax.swing.JButton();
+        btnModificarDT = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,17 +70,32 @@ public class FramePersona extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jButton1.setText("Modificar Árbitro");
+        btnModificarArb.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        btnModificarArb.setText("Modificar Árbitro");
+        btnModificarArb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarArbActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jButton2.setText("Listar Árbitros");
 
-        jButton3.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jButton3.setText("Registrar Director Técnico");
+        btnRegistrarDT.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        btnRegistrarDT.setText("Registrar Director Técnico");
+        btnRegistrarDT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarDTActionPerformed(evt);
+            }
+        });
 
-        jButton4.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jButton4.setText("Modificar Director Técnico");
+        btnModificarDT.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        btnModificarDT.setText("Modificar Director Técnico");
+        btnModificarDT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarDTActionPerformed(evt);
+            }
+        });
 
         jButton6.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jButton6.setText("Listar Directores Técnicos");
@@ -92,17 +107,17 @@ public class FramePersona extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(108, 108, 108)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModificarArb, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRegistrarArb, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRegistrarDT, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(77, 77, 77))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4)
+                            .addComponent(btnModificarDT)
                             .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap())))
         );
@@ -112,11 +127,11 @@ public class FramePersona extends javax.swing.JFrame {
                 .addContainerGap(73, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegistrarArb, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(btnRegistrarDT))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnModificarArb, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModificarDT, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
@@ -144,10 +159,32 @@ public class FramePersona extends javax.swing.JFrame {
 
     private void btnRegistrarArbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarArbActionPerformed
         // TODO add your handling code here:
-        RegistrarArbitro arbitro = new RegistrarArbitro();
-        arbitro.setVisible(true);
+        RegistrarArbitro regArbitro = new RegistrarArbitro();
+        regArbitro.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegistrarArbActionPerformed
+
+    private void btnModificarArbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarArbActionPerformed
+        // TODO add your handling code here:
+        ModificarArbitro modArbitro = new ModificarArbitro();
+        modArbitro.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnModificarArbActionPerformed
+
+    private void btnRegistrarDTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarDTActionPerformed
+         // TODO add your handling code here:
+        RegistrarDirectorTecnico regDT = new RegistrarDirectorTecnico();
+        regDT.setVisible(true);
+        this.dispose();
+          
+    }//GEN-LAST:event_btnRegistrarDTActionPerformed
+
+    private void btnModificarDTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarDTActionPerformed
+        // TODO add your handling code here:
+        ModificarDirectorTecnico modDT = new ModificarDirectorTecnico();
+        modDT.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnModificarDTActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,11 +229,11 @@ public class FramePersona extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnModificarArb;
+    private javax.swing.JButton btnModificarDT;
     private javax.swing.JButton btnRegistrarArb;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnRegistrarDT;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
