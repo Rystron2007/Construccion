@@ -24,7 +24,7 @@ public class Conexion {
     }
 
     public static void iniciarDatos(String user, String password, String port) {
-        Conexion.databaseURL = "jdbc:oracle:thin:@//localhost:"+port+"/xe";
+        Conexion.databaseURL = "jdbc:oracle:thin:@//192.168.100.229:"+port+"/xe";
         Conexion.user = user;
         Conexion.password = password;
     }
