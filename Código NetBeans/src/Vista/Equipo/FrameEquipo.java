@@ -36,6 +36,7 @@ public class FrameEquipo extends javax.swing.JFrame {
         registrarEquipos = new javax.swing.JButton();
         modificarEquipos = new javax.swing.JButton();
         buscarEquipos1 = new javax.swing.JButton();
+        buscarEquipos2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(555, 500));
@@ -70,7 +71,13 @@ public class FrameEquipo extends javax.swing.JFrame {
                 registrarEquiposActionPerformed(evt);
             }
         });
-        jPanel1.add(registrarEquipos, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(74, 258, 0, 297);
+        jPanel1.add(registrarEquipos, gridBagConstraints);
 
         modificarEquipos.setBackground(new java.awt.Color(255, 255, 255));
         modificarEquipos.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
@@ -83,12 +90,15 @@ public class FrameEquipo extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 258, 0, 0);
         jPanel1.add(modificarEquipos, gridBagConstraints);
 
         buscarEquipos1.setBackground(new java.awt.Color(255, 255, 255));
         buscarEquipos1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        buscarEquipos1.setText("Listar Equipos");
+        buscarEquipos1.setText("Eliminar Equipos");
         buscarEquipos1.setFocusPainted(false);
         buscarEquipos1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,9 +107,28 @@ public class FrameEquipo extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 258, 37, 0);
         jPanel1.add(buscarEquipos1, gridBagConstraints);
+
+        buscarEquipos2.setBackground(new java.awt.Color(255, 255, 255));
+        buscarEquipos2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        buscarEquipos2.setText("Listar Equipos");
+        buscarEquipos2.setFocusPainted(false);
+        buscarEquipos2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarEquipos2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 32;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 258, 0, 297);
+        jPanel1.add(buscarEquipos2, gridBagConstraints);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -125,10 +154,17 @@ public class FrameEquipo extends javax.swing.JFrame {
     }//GEN-LAST:event_modificarEquiposActionPerformed
 
     private void buscarEquipos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarEquipos1ActionPerformed
+        FrameEliminar eliminar = new FrameEliminar();
+        eliminar.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_buscarEquipos1ActionPerformed
+
+    private void buscarEquipos2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarEquipos2ActionPerformed
+       
         FrameBuscar buscar = new FrameBuscar();
         buscar.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_buscarEquipos1ActionPerformed
+    }//GEN-LAST:event_buscarEquipos2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,6 +206,7 @@ public class FrameEquipo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscarEquipos1;
+    private javax.swing.JButton buscarEquipos2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

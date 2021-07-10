@@ -106,4 +106,14 @@ public class EquipoControl {
             JOptionPane.showMessageDialog(null, "No se pudo realizar la modificacion....Intentelo de nuevo");
         }
     }
+    public void EliminarEquipo(String nombre) {
+        Equipo antiguo = new Equipo(nombre, "");
+        try {
+            String query = "delete from Equipo where nombre_equipo = ?";
+            conector.remover(query, antiguo);
+            JOptionPane.showMessageDialog(null, "Eliminacion realizada con exito!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pudo realizar la modificacion....Intentelo de nuevo");
+        }
+    }
 }
