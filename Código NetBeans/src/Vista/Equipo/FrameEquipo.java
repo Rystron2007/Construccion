@@ -6,6 +6,7 @@
 package Vista.Equipo;
 
 import Controlador.*;
+import Modelo.DataBase.Conexion;
 
 /**
  *
@@ -16,8 +17,11 @@ public class FrameEquipo extends javax.swing.JFrame {
     /**
      * Creates new form FrameRegistrar
      */
-    public FrameEquipo() {
+    private Conexion conexion;
+    
+    public FrameEquipo(Conexion conexion) {
         initComponents();
+        this.conexion = conexion;
     }
 
     /**
@@ -76,7 +80,7 @@ public class FrameEquipo extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(74, 258, 0, 297);
+        gridBagConstraints.insets = new java.awt.Insets(62, 258, 0, 297);
         jPanel1.add(registrarEquipos, gridBagConstraints);
 
         modificarEquipos.setBackground(new java.awt.Color(255, 255, 255));
@@ -108,6 +112,7 @@ public class FrameEquipo extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 258, 37, 0);
         jPanel1.add(buscarEquipos1, gridBagConstraints);
@@ -125,6 +130,7 @@ public class FrameEquipo extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.ipadx = 32;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 258, 0, 297);
@@ -136,7 +142,7 @@ public class FrameEquipo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registrarEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarEquiposActionPerformed
-        FrameRegistrar equipo = new FrameRegistrar();
+        FrameRegistrar equipo = new FrameRegistrar(conexion);
         equipo.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_registrarEquiposActionPerformed
@@ -166,42 +172,12 @@ public class FrameEquipo extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_buscarEquipos2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+    public Conexion getConexion() {
+        return conexion;
+    }
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrameEquipo().setVisible(true);
-            }
-        });
+    public void setConexion(Conexion conexion) {
+        this.conexion = conexion;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

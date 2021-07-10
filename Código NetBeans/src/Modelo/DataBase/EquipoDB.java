@@ -18,6 +18,7 @@ public class EquipoDB implements CRUD {
     private Connection connector;
     private PreparedStatement statement;
     private ResultSet result;
+    private Conexion conexion;
 
     public int iniciarStatement(String query, Object objeto) throws SQLException {
         try {
@@ -43,7 +44,7 @@ public class EquipoDB implements CRUD {
     @Override
     public void registrar(String query, Object objeto) {
         try {
-            connector = Conexion.getConnection();
+            connector = this.conexion.getConnection();
             validarStatement(iniciarStatement(query, objeto));
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Fallo de Consulta", "Registro Fallido", JOptionPane.ERROR_MESSAGE);
@@ -144,6 +145,14 @@ public class EquipoDB implements CRUD {
             Logger.getLogger(EquipoDB.class.getName()).log(Level.SEVERE, null, ex);
         }
         return datos;
+    }
+
+    public Conexion getConexion() {
+        return conexion;
+    }
+
+    public void setConexion(Conexion conexion) {
+        this.conexion = conexion;
     }
 
 }

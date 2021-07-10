@@ -163,9 +163,9 @@ public class FrameModificar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void volver1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volver1ActionPerformed
-        FrameEquipo equipo =new FrameEquipo();
+        /*FrameEquipo equipo =new FrameEquipo();
         equipo.setVisible(true);
-        this.dispose();
+        this.dispose();*/
     }//GEN-LAST:event_volver1ActionPerformed
 
     /**

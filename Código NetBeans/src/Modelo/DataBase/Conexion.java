@@ -23,14 +23,13 @@ public class Conexion {
         return null;
     }
 
-    public static void iniciarDatos() {
-        Conexion.databaseURL = "jdbc:oracle:thin:@//localhost:1521/xe";
-        Conexion.user = "SYSTEM";
-        Conexion.password = "1234";
+    public static void iniciarDatos(String user, String password, String port) {
+        Conexion.databaseURL = "jdbc:oracle:thin:@//localhost:"+port+"/xe";
+        Conexion.user = user;
+        Conexion.password = password;
     }
 
     public static Connection iniciarConexion() throws SQLException {
-        iniciarDatos();
         Connection connector = DriverManager.getConnection(Conexion.databaseURL, Conexion.user, Conexion.password);
         validarConexion(connector);
         return connector;

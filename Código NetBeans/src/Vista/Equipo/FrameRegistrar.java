@@ -1,6 +1,7 @@
 package Vista.Equipo;
 
 import Controlador.*;
+import Modelo.DataBase.Conexion;
 import javax.swing.JOptionPane;
 
 public class FrameRegistrar extends javax.swing.JFrame {
@@ -8,8 +9,11 @@ public class FrameRegistrar extends javax.swing.JFrame {
     /**
      * Creates new form RegistrarEquipo
      */
-    public FrameRegistrar() {
+    private Conexion conexion;
+
+    public FrameRegistrar(Conexion conexion) {
         initComponents();
+        this.conexion = conexion;
     }
 
     /**
@@ -143,6 +147,7 @@ public class FrameRegistrar extends javax.swing.JFrame {
             String nombreEquipo = txtNombreEquipo.getText();
             String paisOrigen = txtPaisOrigen.getText();
             EquipoControl equipoControl = new EquipoControl(nombreEquipo, paisOrigen);
+            equipoControl.setConexion(conexion);
             equipoControl.registrarEquipo();
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
@@ -151,7 +156,7 @@ public class FrameRegistrar extends javax.swing.JFrame {
     }
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        FrameEquipo equipo = new FrameEquipo();
+        FrameEquipo equipo = new FrameEquipo(conexion);
         equipo.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
@@ -160,40 +165,12 @@ public class FrameRegistrar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPaisOrigenActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    public Conexion getConexion() {
+        return conexion;
+    }
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrameRegistrar().setVisible(true);
-            }
-        });
+    public void setConexion(Conexion conexion) {
+        this.conexion = conexion;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

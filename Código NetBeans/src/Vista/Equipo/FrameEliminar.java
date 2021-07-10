@@ -157,7 +157,7 @@ public class FrameEliminar extends javax.swing.JFrame {
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
         String nombre = txtNombre.getText();
         EquipoControl equipo = new EquipoControl();
-        equipo.EliminarEquipo(nombre);
+        equipo.eliminarEquipo(nombre);
     }//GEN-LAST:event_buscarActionPerformed
 
     private void mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarActionPerformed
@@ -166,9 +166,9 @@ public class FrameEliminar extends javax.swing.JFrame {
     }//GEN-LAST:event_mostrarActionPerformed
 
     private void volver1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volver1ActionPerformed
-        FrameEquipo equipo = new FrameEquipo();
+        /*FrameEquipo equipo = new FrameEquipo();
         equipo.setVisible(true);
-        this.dispose();
+        this.dispose();*/
     }//GEN-LAST:event_volver1ActionPerformed
 
     /**

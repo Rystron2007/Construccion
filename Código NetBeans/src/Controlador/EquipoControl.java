@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Modelo.DataBase.Conexion;
 import Modelo.Simples.Equipo;
 import Modelo.DataBase.EquipoDB;
 import java.awt.HeadlessException;
@@ -23,6 +24,7 @@ public class EquipoControl {
     private String pais_origen;
     private Equipo equipo;
     private EquipoDB conector;
+    private Conexion conexion;
     private DefaultTableModel tableModel;
 
 //Constructor sin parametros usados para las busquedas 
@@ -41,6 +43,7 @@ public class EquipoControl {
     }
 
     public void registrarEquipo() {
+        conector.setConexion(conexion);
         try {
             String query = "insert into Equipo (nombre_equipo, pais_origen) values (?,?)";
             conector.registrar(query, equipo);
@@ -106,14 +109,24 @@ public class EquipoControl {
             JOptionPane.showMessageDialog(null, "No se pudo realizar la modificacion....Intentelo de nuevo");
         }
     }
-    public void EliminarEquipo(String nombre) {
+
+    public void eliminarEquipo(String nombre) {
         Equipo antiguo = new Equipo(nombre, "");
         try {
             String query = "delete from Equipo where nombre_equipo = ?";
             conector.remover(query, antiguo);
             JOptionPane.showMessageDialog(null, "Eliminacion realizada con exito!");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se pudo realizar la modificacion....Intentelo de nuevo");
+        } catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(null, "No se pudo realizar la eliminación....Intentelo de nuevo");
         }
     }
+
+    public Conexion getConexion() {
+        return conexion;
+    }
+
+    public void setConexion(Conexion conexion) {
+        this.conexion = conexion;
+    }
+    
 }
