@@ -54,6 +54,7 @@ public class EquipoControl {
     }
 
     public void listarEquipo(JTable tabla) {
+        conector.setConexion(conexion);
         try {
             tableModel = (DefaultTableModel) tabla.getModel();
             List<Equipo> lista = conector.listar();
@@ -71,6 +72,7 @@ public class EquipoControl {
     }
 
     public void buscarEquipo(JTable tabla, String nombre) {
+        conector.setConexion(conexion);
         boolean validar = false;
         try {
             tableModel = (DefaultTableModel) tabla.getModel();
@@ -100,6 +102,7 @@ public class EquipoControl {
     }
 
     public void actualizarEquipo(String nombre) {
+        conector.setConexion(conexion);
         Equipo antiguo = new Equipo(nombre, "");
         try {
             String query = "update Equipo SET nombre_equipo = ?, pais_origen = ?  where nombre_equipo = ?";
@@ -111,6 +114,7 @@ public class EquipoControl {
     }
 
     public void eliminarEquipo(String nombre) {
+        conector.setConexion(conexion);
         Equipo antiguo = new Equipo(nombre, "");
         try {
             String query = "delete from Equipo where nombre_equipo = ?";
