@@ -8,9 +8,8 @@ public class Arbitro extends Persona {
     private int partidosArbitrados;
 
     //Constructor Parametrizado
-    public Arbitro(String cedula, ActaNacimiento actaNacimiento, int edad, String direccion, String email,
-            int partidosArbitrados) {
-        super(cedula, actaNacimiento, edad, direccion, email);
+    public Arbitro(String cedula, String nombres, String apellidos, int edad, String direccion, String email,
+            int partidosArbitrados) { 
         this.partidosArbitrados = partidosArbitrados;
     }
 

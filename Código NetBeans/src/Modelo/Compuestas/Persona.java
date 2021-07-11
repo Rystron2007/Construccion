@@ -1,12 +1,12 @@
 package Modelo.Compuestas;
 
-import Modelo.Simples.ActaNacimiento;
 
 public class Persona {
 
     //Atributos de Una Persona permitiendo Herencia
     protected String cedula;
-    protected ActaNacimiento actaNacimiento;
+    protected String nombres;
+    protected String apellidos;
     protected int edad;
     protected String direccion;
     protected String email;
@@ -16,20 +16,13 @@ public class Persona {
     }
 
     //Constructor Parametrizado
-    public Persona(String cedula, ActaNacimiento actaNacimiento, int edad, String direccion, String email) {
+    public Persona(String cedula, String nombres, String apellidos, int edad, String direccion, String email) {
         this.cedula = cedula;
-        this.actaNacimiento = actaNacimiento;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
         this.edad = edad;
         this.direccion = direccion;
         this.email = email;
-    }
-
-    //Método para Obtener los Datos de la Acta de Nacimiento
-    public String obtenerActaNacimiento() {
-        return "NUI: " + actaNacimiento.getNUI()
-                + "Nombres: " + actaNacimiento.getNombres()
-                + "\nApellidos: " + actaNacimiento.getApellidos()
-                + "\nNacionalidad: " + actaNacimiento.getNacionalidad();
     }
 
     //Métodos GET y SET
@@ -41,12 +34,20 @@ public class Persona {
         this.cedula = cedula;
     }
 
-    public ActaNacimiento getActaNacimiento() {
-        return actaNacimiento;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setActaNacimiento(ActaNacimiento actaNacimiento) {
-        this.actaNacimiento = actaNacimiento;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+    
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public int getEdad() {

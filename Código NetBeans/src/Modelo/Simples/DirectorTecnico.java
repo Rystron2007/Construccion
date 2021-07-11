@@ -8,9 +8,8 @@ public class DirectorTecnico extends Persona {
     private int equiposDirigidos;
 
     //Constructor Parametrizado
-    public DirectorTecnico(String cedula, ActaNacimiento actaNacimiento, int edad, String direccion, String email,
+    public DirectorTecnico(String cedula, String nombres, String apellidos, int edad, String direccion, String email,
             int equiposDirigidos) {
-        super(cedula, actaNacimiento, edad, direccion, email);
         this.equiposDirigidos = equiposDirigidos;
     }
 
