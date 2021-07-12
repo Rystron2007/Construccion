@@ -5,9 +5,7 @@
  */
 package Vista;
 
-import Vista.Equipo.FrameEquipo;
 import Vista.Login.FrameLogin;
-import Vista.Personas.FramePersona;
 
 /**
  *
@@ -16,9 +14,7 @@ import Vista.Personas.FramePersona;
 public class Main {
 
     public static void main(String[] args) {
-        /*FrameEquipo equipo = new FrameEquipo();
-        equipo.setVisible(true);*/
-        FrameLogin login=  new FrameLogin();
+        FrameLogin login = new FrameLogin();
         login.setVisible(true);
     }
 }

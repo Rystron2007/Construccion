@@ -9,11 +9,8 @@ public class FrameRegistrar extends javax.swing.JFrame {
     /**
      * Creates new form RegistrarEquipo
      */
-    private Conexion conexion;
-
-    public FrameRegistrar(Conexion conexion) {
+    public FrameRegistrar() {
         initComponents();
-        this.conexion = conexion;
     }
 
     /**
@@ -147,8 +144,9 @@ public class FrameRegistrar extends javax.swing.JFrame {
             String nombreEquipo = txtNombreEquipo.getText();
             String paisOrigen = txtPaisOrigen.getText();
             EquipoControl equipoControl = new EquipoControl(nombreEquipo, paisOrigen);
-            equipoControl.setConexion(conexion);
             equipoControl.registrarEquipo();
+            cerrarVentana();
+            this.dispose();
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
     public int validarCampos() {
@@ -156,22 +154,18 @@ public class FrameRegistrar extends javax.swing.JFrame {
     }
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        FrameEquipo equipo = new FrameEquipo(conexion);
+        cerrarVentana();
+    }//GEN-LAST:event_btnVolverActionPerformed
+
+    public void cerrarVentana() {
+        FrameEquipo equipo = new FrameEquipo();
         equipo.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_btnVolverActionPerformed
+    }
 
     private void txtPaisOrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPaisOrigenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPaisOrigenActionPerformed
-
-    public Conexion getConexion() {
-        return conexion;
-    }
-
-    public void setConexion(Conexion conexion) {
-        this.conexion = conexion;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BarraTop;

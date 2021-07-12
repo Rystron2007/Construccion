@@ -17,11 +17,8 @@ public class FrameEquipo extends javax.swing.JFrame {
     /**
      * Creates new form FrameRegistrar
      */
-    private Conexion conexion;
-    
-    public FrameEquipo(Conexion conexion) {
+    public FrameEquipo() {
         initComponents();
-        this.conexion = conexion;
     }
 
     /**
@@ -142,7 +139,7 @@ public class FrameEquipo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registrarEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarEquiposActionPerformed
-        FrameRegistrar equipo = new FrameRegistrar(conexion);
+        FrameRegistrar equipo = new FrameRegistrar();
         equipo.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_registrarEquiposActionPerformed
@@ -166,19 +163,11 @@ public class FrameEquipo extends javax.swing.JFrame {
     }//GEN-LAST:event_buscarEquipos1ActionPerformed
 
     private void buscarEquipos2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarEquipos2ActionPerformed
-       
+
         FrameBuscar buscar = new FrameBuscar();
         buscar.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buscarEquipos2ActionPerformed
-
-    public Conexion getConexion() {
-        return conexion;
-    }
-
-    public void setConexion(Conexion conexion) {
-        this.conexion = conexion;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscarEquipos1;
