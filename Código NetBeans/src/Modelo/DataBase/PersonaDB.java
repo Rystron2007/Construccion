@@ -7,7 +7,6 @@ package Modelo.DataBase;
 
 import Modelo.Interfaces.CRUD;
 import Modelo.Compuestas.Persona;
-import Modelo.Simples.Equipo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -64,7 +63,7 @@ public class PersonaDB implements CRUD{
         }
     }
     
-    /*public void modificar(String query, Object objeto) {
+    public void modificar(String query, Object objeto) {
         Persona persona = (Persona) objeto;
         int answer = 0;
         //query="update equipo set nombre_equipo=? pais_origen=? where nombre_equipo=?";
@@ -72,10 +71,35 @@ public class PersonaDB implements CRUD{
             connector = Conexion.getConnection();
             statement = connector.prepareStatement(query);
             statement.setString(1, persona.getCedula());
-            //statement.setString(2, persona.getActaNacimiento());
-            statement.setInt(3, persona.getEdad());
-            statement.setString(4, persona.getDireccion());
-            statement.setString(5, persona.getEmail());
+            statement.setString(2, persona.getNombres());
+            statement.setString(3, persona.getApellidos());
+            statement.setInt(4, persona.getEdad());
+            statement.setString(5, persona.getDireccion());
+            statement.setString(6, persona.getEmail());
+            answer = statement.executeUpdate();
+            if (answer == 1) {
+                System.out.println("Modificado Exitosamente!");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EquipoDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    public void modificar2(String query, Object objeto, Object ob) {
+        Persona persona = (Persona) objeto;
+        Persona antiguo = (Persona) ob;
+        int answer = 0;
+        try {
+            connector = Conexion.getConnection();
+            statement = connector.prepareStatement(query);
+            statement.setString(1, persona.getCedula());
+            statement.setString(2, persona.getNombres());
+            statement.setString(3, persona.getApellidos());
+            statement.setInt(4, persona.getEdad());
+            statement.setString(5, persona.getDireccion());
+            statement.setString(6, persona.getEmail());
+            statement.setString(7, antiguo.getCedula());
             answer = statement.executeUpdate();
             if (answer == 1) {
                 System.out.println("Modificado Exitosamente!");
@@ -102,20 +126,20 @@ public class PersonaDB implements CRUD{
         }
     }   
     
-    @Override
+   @Override
     //Metodo para imprimir en consola
     public List buscar(String nombre) {
         String query = "select nombre_equipo, pais_origen from Equipo where nombre_equipo = '" + nombre + "'";
-        List<Equipo> datos = new ArrayList<>();
+        List<Persona> datos = new ArrayList<>();
         try {
             connector = Conexion.getConnection();
             statement = connector.prepareStatement(query);
             result = statement.executeQuery();
             while (result.next()) {
-                Equipo equipo = new Equipo();
-                equipo.setNombreEquipo(result.getString(1));
-                equipo.setPaisOrigen(result.getString(2));
-                datos.add(equipo);
+                Persona persona = new Persona();
+                persona.setCedula(result.getString(1));
+                persona.setNombres(result.getString(2));
+                datos.add(persona);
             }
         } catch (SQLException ex) {
             Logger.getLogger(EquipoDB.class.getName()).log(Level.SEVERE, null, ex);
@@ -124,7 +148,7 @@ public class PersonaDB implements CRUD{
     }
     
     public List listar() {
-        List<Equipo> datos = new ArrayList<>();
+        List<Persona> datos = new ArrayList<>();
         String query = "select nombre_equipo, pais_origen from Equipo";
         try {
             connector = Conexion.getConnection();
@@ -132,17 +156,24 @@ public class PersonaDB implements CRUD{
             result = statement.executeQuery();
 
             while (result.next()) {
-                Equipo equipo = new Equipo();
-                equipo.setNombreEquipo(result.getString("nombre_equipo"));
-                equipo.setPaisOrigen(result.getString("pais_origen"));
-                datos.add(equipo);
+                Persona persona = new Persona();
+                persona.setCedula(result.getString("nombre_equipo"));
+                persona.setNombres(result.getString("pais_origen"));
+                datos.add(persona);
             }
 
         } catch (SQLException ex) {
             Logger.getLogger(EquipoDB.class.getName()).log(Level.SEVERE, null, ex);
         }
         return datos;
-    }*/
+    }
     
+    public Conexion getConexion() {
+        return conexion;
+    }
+
+    public void setConexion(Conexion conexion) {
+        this.conexion = conexion;
+    }
     
 }

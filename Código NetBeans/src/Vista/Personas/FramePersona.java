@@ -5,6 +5,7 @@
  */
 package Vista.Personas;
 import Controlador.*;
+import Modelo.DataBase.Conexion;
 
 /**
  *
@@ -15,7 +16,14 @@ public class FramePersona extends javax.swing.JFrame {
     /**
      * Creates new form RegistroPersona
      */
-    public FramePersona() {
+    private Conexion conexion;
+    
+    public FramePersona(Conexion conexion) {
+        initComponents();
+        this.conexion = conexion;
+    }
+    
+    public FramePersona(){
         initComponents();
     }
 
@@ -186,6 +194,14 @@ public class FramePersona extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnModificarDTActionPerformed
 
+        public Conexion getConexion() {
+        return conexion;
+    }
+
+    public void setConexion(Conexion conexion) {
+        this.conexion = conexion;
+    } 
+    
     /**
      * @param args the command line arguments
      */
@@ -220,12 +236,6 @@ public class FramePersona extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FramePersona().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
