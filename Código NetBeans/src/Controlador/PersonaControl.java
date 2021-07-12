@@ -82,7 +82,7 @@ public class PersonaControl {
         try {
             tableModel = (DefaultTableModel) tabla.getModel();
             List<Persona> lista = conector.buscar(cedula);
-            Object[] ob = new Object[5];
+            Object[] ob = new Object[6];
             for (int i = 0; i < lista.size(); i++) {
                 if (lista.get(i).getCedula().compareTo(cedula) == 0) {
                     ob[0] = lista.get(i).getCedula();
@@ -113,7 +113,7 @@ public class PersonaControl {
         try {
             tableModel = (DefaultTableModel) tabla.getModel();
             List<Persona> lista = conector.listar();
-            Object[] ob = new Object[5];
+            Object[] ob = new Object[6];
             for (int i = 0; i < lista.size(); i++) {
                 ob[0] = lista.get(i).getCedula();
                 ob[1] = lista.get(i).getNombres();
