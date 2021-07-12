@@ -15,8 +15,6 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 
-
-
 /**
  *
  * @author Eileen
@@ -66,41 +64,43 @@ public class PersonaControl {
         }   
     }
     
-    public void actualizarPersona(String cedula) {
+    /*public void actualizarPersona(String cedula) {
         conector.setConexion(conexion);
         Persona antiguo = new Persona(cedula, "");
         try {
-            String query = "update PERSONA SET cedula = ?, nombres = ?, apellidos = ?, edad = ?, direccion = ?, email = ?,  where nombre_equipo = ?";
+            String query = "update PERSONA SET cedula = ?, nombres = ?, apellidos = ?, edad = ?, direccion = ?, email = ?,  where cedula = ?";
             conector.modificar2(query, persona, antiguo);
             JOptionPane.showMessageDialog(null, "Modificacion realizada con exito!");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo realizar la modificacion....Intentelo de nuevo");
         }
-    }
+    }*/
     
-    public void buscarPr(JTable tabla, String nombre) {
+    public void buscarPersona(JTable tabla, String cedula) {
         conector.setConexion(conexion);
         boolean validar = false;
         try {
             tableModel = (DefaultTableModel) tabla.getModel();
-            List<Equipo> lista = conector.buscar(nombre);
+            List<Persona> lista = conector.buscar(cedula);
             Object[] ob = new Object[2];
             for (int i = 0; i < lista.size(); i++) {
-                if (lista.get(i).getNombreEquipo().compareTo(nombre) == 0) {
-                    ob[0] = lista.get(i).getNombreEquipo();
-                    ob[1] = lista.get(i).getPaisOrigen();
+                if (lista.get(i).getCedula().compareTo(cedula) == 0) {
+                    ob[0] = lista.get(i).getCedula();
+                    ob[1] = lista.get(i).getNombres();
+                    ob[2] = lista.get(i).getApellidos();
+                    ob[3] = lista.get(i).getEdad();
+                    ob[4] = lista.get(i).getDireccion();
+                    ob[5] = lista.get(i).getEmail();
                     tableModel.addRow(ob);
                     validar = true;
                 }
-
             }
-
             tabla.setModel(tableModel);
             if (validar) {
                 tabla.setModel(tableModel);
                 JOptionPane.showMessageDialog(null, "Busqueda con exito!");
             } else {
-                JOptionPane.showMessageDialog(null, "No existe el equipo");
+                JOptionPane.showMessageDialog(null, "No está registrado");
             }
 
         } catch (HeadlessException e) {
@@ -108,19 +108,17 @@ public class PersonaControl {
         }
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    /*public void eliminarPersona(String cedula) {
+        conector.setConexion(conexion);
+        Persona antiguo = new Persona(cedula, "");
+        try {
+            String query = "delete from PERSONA where cedula = ?";
+            conector.remover(query, antiguo);
+            JOptionPane.showMessageDialog(null, "Eliminacion realizada con exito!");
+        } catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(null, "No se pudo realizar la eliminación....Intentelo de nuevo");
+        }
+    }*/
     
     public Conexion getConexion() {
         return conexion;

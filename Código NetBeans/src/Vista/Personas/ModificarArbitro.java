@@ -89,6 +89,11 @@ public class ModificarArbitro extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jButton2.setText("Realizar cambios");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jButton3.setText("Volver");
@@ -163,6 +168,11 @@ public class ModificarArbitro extends javax.swing.JFrame {
         volver.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+  
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

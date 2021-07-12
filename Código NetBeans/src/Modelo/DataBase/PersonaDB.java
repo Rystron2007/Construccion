@@ -63,10 +63,10 @@ public class PersonaDB implements CRUD{
         }
     }
     
+    @Override
     public void modificar(String query, Object objeto) {
         Persona persona = (Persona) objeto;
         int answer = 0;
-        //query="update equipo set nombre_equipo=? pais_origen=? where nombre_equipo=?";
         try {
             connector = Conexion.getConnection();
             statement = connector.prepareStatement(query);
@@ -128,8 +128,8 @@ public class PersonaDB implements CRUD{
     
    @Override
     //Metodo para imprimir en consola
-    public List buscar(String nombre) {
-        String query = "select nombre_equipo, pais_origen from Equipo where nombre_equipo = '" + nombre + "'";
+    public List buscar(String cedula) {
+        String query = "select cedula, nombres, apellidos, edad, direccion, email from PERSONA where cedula = '" + cedula + "'";
         List<Persona> datos = new ArrayList<>();
         try {
             connector = Conexion.getConnection();
@@ -139,6 +139,10 @@ public class PersonaDB implements CRUD{
                 Persona persona = new Persona();
                 persona.setCedula(result.getString(1));
                 persona.setNombres(result.getString(2));
+                persona.setApellidos(result.getString(3));
+                persona.setEdad(result.getInt(4));
+                persona.setDireccion(result.getString(5));
+                persona.setEmail(result.getString(6));
                 datos.add(persona);
             }
         } catch (SQLException ex) {
@@ -149,7 +153,7 @@ public class PersonaDB implements CRUD{
     
     public List listar() {
         List<Persona> datos = new ArrayList<>();
-        String query = "select nombre_equipo, pais_origen from Equipo";
+        String query = "select cedula, nombres, apellidos, edad, direccion, email from PERSONA";
         try {
             connector = Conexion.getConnection();
             statement = connector.prepareStatement(query);
@@ -157,8 +161,12 @@ public class PersonaDB implements CRUD{
 
             while (result.next()) {
                 Persona persona = new Persona();
-                persona.setCedula(result.getString("nombre_equipo"));
-                persona.setNombres(result.getString("pais_origen"));
+                persona.setCedula(result.getString("Cedula"));
+                persona.setNombres(result.getString("Nombres"));
+                persona.setApellidos(result.getString("Apellidos"));
+                persona.setEdad(result.getInt("Edad"));
+                persona.setDireccion(result.getString("Direccion"));
+                persona.setEmail(result.getString("Email"));
                 datos.add(persona);
             }
 

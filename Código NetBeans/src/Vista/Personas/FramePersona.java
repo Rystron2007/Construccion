@@ -87,7 +87,7 @@ public class FramePersona extends javax.swing.JFrame {
         });
 
         jButton2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jButton2.setText("Listar Árbitros");
+        jButton2.setText("Buscar Árbitro");
 
         btnRegistrarDT.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnRegistrarDT.setText("Registrar Director Técnico");
@@ -106,7 +106,7 @@ public class FramePersona extends javax.swing.JFrame {
         });
 
         jButton6.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jButton6.setText("Listar Directores Técnicos");
+        jButton6.setText("Buscar Director Técnico");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
