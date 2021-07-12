@@ -51,25 +51,9 @@ public class EquipoDB implements CRUD {
         }
     }
 
-    public void modificar(String query, Object objeto) {
-        Equipo equipo = (Equipo) objeto;
-        int answer = 0;
-        //query="update equipo set nombre_equipo=? pais_origen=? where nombre_equipo=?";
-        try {
-            connector = Conexion.getConnection();
-            statement = connector.prepareStatement(query);
-            statement.setString(1, equipo.getNombreEquipo());
-            statement.setString(2, equipo.getPaisOrigen());
-            answer = statement.executeUpdate();
-            if (answer == 1) {
-                System.out.println("Modificado Exitosamente!");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(EquipoDB.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    
 
-    public void modificar2(String query, Object objeto, Object ob) {
+    public void modificar(String query, Object objeto, Object ob) {
         Equipo equipo = (Equipo) objeto;
         Equipo antiguo = (Equipo) ob;
         int answer = 0;

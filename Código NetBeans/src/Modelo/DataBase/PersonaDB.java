@@ -64,7 +64,7 @@ public class PersonaDB implements CRUD{
     }
     
     @Override
-    public void modificar(String query, Object objeto) {
+    public void modificar(String query, Object objeto,Object ob) {
         Persona persona = (Persona) objeto;
         int answer = 0;
         try {

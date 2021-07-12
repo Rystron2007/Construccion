@@ -106,7 +106,7 @@ public class EquipoControl {
         Equipo antiguo = new Equipo(nombre, "");
         try {
             String query = "update Equipo SET nombre_equipo = ?, pais_origen = ?  where nombre_equipo = ?";
-            conector.modificar2(query, equipo, antiguo);
+            conector.modificar(query, equipo, antiguo);
             JOptionPane.showMessageDialog(null, "Modificacion realizada con exito!");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo realizar la modificacion....Intentelo de nuevo");
