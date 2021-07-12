@@ -64,9 +64,9 @@ public class PersonaControl {
         }   
     }
     
-    /*public void actualizarPersona(String cedula) {
+    public void actualizarPersona(String cedula) {
         conector.setConexion(conexion);
-        Persona antiguo = new Persona(cedula, "");
+        Persona antiguo = new Persona(cedula, "", "", 0, "", "");
         try {
             String query = "update PERSONA SET cedula = ?, nombres = ?, apellidos = ?, edad = ?, direccion = ?, email = ?,  where cedula = ?";
             conector.modificar2(query, persona, antiguo);
@@ -74,7 +74,7 @@ public class PersonaControl {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo realizar la modificacion....Intentelo de nuevo");
         }
-    }*/
+    }
     
     public void buscarPersona(JTable tabla, String cedula) {
         conector.setConexion(conexion);
@@ -82,7 +82,7 @@ public class PersonaControl {
         try {
             tableModel = (DefaultTableModel) tabla.getModel();
             List<Persona> lista = conector.buscar(cedula);
-            Object[] ob = new Object[2];
+            Object[] ob = new Object[5];
             for (int i = 0; i < lista.size(); i++) {
                 if (lista.get(i).getCedula().compareTo(cedula) == 0) {
                     ob[0] = lista.get(i).getCedula();
@@ -108,9 +108,31 @@ public class PersonaControl {
         }
     }
     
-    /*public void eliminarPersona(String cedula) {
+    public void listarPersona(JTable tabla) {
         conector.setConexion(conexion);
-        Persona antiguo = new Persona(cedula, "");
+        try {
+            tableModel = (DefaultTableModel) tabla.getModel();
+            List<Persona> lista = conector.listar();
+            Object[] ob = new Object[5];
+            for (int i = 0; i < lista.size(); i++) {
+                ob[0] = lista.get(i).getCedula();
+                ob[1] = lista.get(i).getNombres();
+                ob[2] = lista.get(i).getApellidos();
+                ob[3] = lista.get(i).getEdad();
+                ob[4] = lista.get(i).getDireccion();
+                ob[5] = lista.get(i).getEmail();
+                tableModel.addRow(ob);
+            }
+            tabla.setModel(tableModel);
+            JOptionPane.showMessageDialog(null, "Busqueda con exito!");
+        } catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(null, "No se pudo realizar la busqueda....Intentelo de nuevo");
+        }
+    }
+    
+    public void eliminarPersona(String cedula) {
+        conector.setConexion(conexion);
+        Persona antiguo = new Persona(cedula, "", "", 0, "", "");
         try {
             String query = "delete from PERSONA where cedula = ?";
             conector.remover(query, antiguo);
@@ -118,7 +140,7 @@ public class PersonaControl {
         } catch (HeadlessException e) {
             JOptionPane.showMessageDialog(null, "No se pudo realizar la eliminación....Intentelo de nuevo");
         }
-    }*/
+    }
     
     public Conexion getConexion() {
         return conexion;

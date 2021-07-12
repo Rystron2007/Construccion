@@ -44,7 +44,7 @@ public class PersonaDB implements CRUD{
         return statement.executeUpdate();
     }
     
-    //Válida que el Registro se realizó correctamente
+    //Valida que el Registro se haya realizado correctamente
     public void validarStatement(int valor) {
         if (valor == 1) {
             JOptionPane.showMessageDialog(null, "¡Se registró correctamente!", "Registro Completo", JOptionPane.INFORMATION_MESSAGE);

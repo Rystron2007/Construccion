@@ -41,10 +41,10 @@ public class FramePersona extends javax.swing.JFrame {
         jPanel2 = new Establecer_fondo("/imagenes/fondo1.jpg");
         btnRegistrarArb = new javax.swing.JButton();
         btnModificarArb = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnEliminarArbitro = new javax.swing.JButton();
         btnRegistrarDT = new javax.swing.JButton();
         btnModificarDT = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnEliminarDT = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,8 +86,13 @@ public class FramePersona extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jButton2.setText("Buscar Árbitro");
+        btnEliminarArbitro.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        btnEliminarArbitro.setText("Eliminar Árbitro");
+        btnEliminarArbitro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarArbitroActionPerformed(evt);
+            }
+        });
 
         btnRegistrarDT.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnRegistrarDT.setText("Registrar Director Técnico");
@@ -105,8 +110,13 @@ public class FramePersona extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jButton6.setText("Buscar Director Técnico");
+        btnEliminarDT.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        btnEliminarDT.setText("Eliminar Director Técnico");
+        btnEliminarDT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarDTActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -117,7 +127,7 @@ public class FramePersona extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnModificarArb, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRegistrarArb, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnEliminarArbitro, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -126,7 +136,7 @@ public class FramePersona extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnModificarDT)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnEliminarDT, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
@@ -142,8 +152,8 @@ public class FramePersona extends javax.swing.JFrame {
                     .addComponent(btnModificarDT, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnEliminarArbitro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEliminarDT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(83, Short.MAX_VALUE))
         );
 
@@ -194,6 +204,20 @@ public class FramePersona extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnModificarDTActionPerformed
 
+    private void btnEliminarArbitroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarArbitroActionPerformed
+        // TODO add your handling code here:
+        EliminarArbitro elimArb = new EliminarArbitro();
+        elimArb.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnEliminarArbitroActionPerformed
+
+    private void btnEliminarDTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDTActionPerformed
+        // TODO add your handling code here:
+        EliminarDirectorTecnico elimDT = new EliminarDirectorTecnico();
+        elimDT.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnEliminarDTActionPerformed
+
         public Conexion getConexion() {
         return conexion;
     }
@@ -235,16 +259,20 @@ public class FramePersona extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FramePersona().setVisible(true);
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEliminarArbitro;
+    private javax.swing.JButton btnEliminarDT;
     private javax.swing.JButton btnModificarArb;
     private javax.swing.JButton btnModificarDT;
     private javax.swing.JButton btnRegistrarArb;
     private javax.swing.JButton btnRegistrarDT;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
