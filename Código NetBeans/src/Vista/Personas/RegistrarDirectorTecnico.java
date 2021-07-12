@@ -33,7 +33,7 @@ public class RegistrarDirectorTecnico extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel3 = new Establecer_fondo("/imagenes/fondo1.jpg");
+        jPanel3 = new EstablecerFondo("/imagenes/fondo1.jpg");
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();

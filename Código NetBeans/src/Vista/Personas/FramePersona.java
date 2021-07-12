@@ -38,7 +38,7 @@ public class FramePersona extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new Establecer_fondo("/imagenes/fondo1.jpg");
+        jPanel2 = new EstablecerFondo("/imagenes/fondo1.jpg");
         btnRegistrarArb = new javax.swing.JButton();
         btnModificarArb = new javax.swing.JButton();
         btnEliminarArbitro = new javax.swing.JButton();

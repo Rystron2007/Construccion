@@ -34,7 +34,7 @@ public class FrameModificar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new Establecer_fondo("/imagenes/fondo1.jpg");
+        jPanel1 = new EstablecerFondo("/imagenes/fondo1.jpg");
         jLabel2 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -163,11 +163,15 @@ public class FrameModificar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void volver1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volver1ActionPerformed
-        FrameEquipo equipo =new FrameEquipo();
-        equipo.setVisible(true);
-        this.dispose();
+        cerrarVentana();
     }//GEN-LAST:event_volver1ActionPerformed
 
+    public void cerrarVentana() {
+        FrameEquipo equipo = new FrameEquipo();
+        equipo.setVisible(true);
+        this.dispose();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnModificar;
     private javax.swing.JLabel jLabel1;

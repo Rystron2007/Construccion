@@ -10,6 +10,6 @@ import java.util.List;
 public interface CRUD {
     public void registrar(String query, Object objeto);
     public List buscar(String query);
-    public void modificar(String query, Object objeto, Object ob);
+    public void modificar(String query, Object objeto, Object objetoDos);
     public void remover(String query, Object ob);
 }

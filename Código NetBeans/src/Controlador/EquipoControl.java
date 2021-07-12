@@ -20,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class EquipoControl {
     
+    //Atributos para la gestión de Equipos
     private String nombreEquipo;
     private String pais_origen;
     private Equipo equipo;
@@ -27,12 +28,13 @@ public class EquipoControl {
     private Conexion conexion;
     private DefaultTableModel tableModel;
 
-//Constructor sin parametros usados para las busquedas 
+    //Constructor sin parametros usados para las busquedas 
     public EquipoControl() {
         this.conector = new EquipoDB();
         this.tableModel = new DefaultTableModel();
     }
-//Constructor con parametros usados para los registros y modificaciones
+    
+    //Constructor con parametros usados para los registros y modificaciones
     public EquipoControl(String nombre, String pais_origen) {
         this.nombreEquipo = nombre;
         this.pais_origen = pais_origen;
@@ -40,7 +42,7 @@ public class EquipoControl {
         this.conector = new EquipoDB();
         this.tableModel = new DefaultTableModel();
     }
-    
+
     public void registrarEquipo() {
         iniciarConector();
         try {
@@ -51,7 +53,7 @@ public class EquipoControl {
             JOptionPane.showMessageDialog(null, "No se pudo realizar el registro....Intentelo de nuevo");
         }
     }
-    
+
     public void listarEquipo(JTable tabla) {
         iniciarConector();
         try {
@@ -69,7 +71,7 @@ public class EquipoControl {
             JOptionPane.showMessageDialog(null, "No se pudo realizar la busqueda....Intentelo de nuevo");
         }
     }
-    
+
     public void buscarEquipo(JTable tabla, String nombre) {
         iniciarConector();
         boolean validar = false;
@@ -92,12 +94,12 @@ public class EquipoControl {
             } else {
                 JOptionPane.showMessageDialog(null, "No existe el equipo");
             }
-            
+
         } catch (HeadlessException e) {
             JOptionPane.showMessageDialog(null, "No se pudo realizar la busqueda....Intentelo de nuevo");
         }
     }
-    
+
     public void actualizarEquipo(String nombre) {
         iniciarConector();
         Equipo antiguo = new Equipo(nombre, "");
@@ -105,11 +107,11 @@ public class EquipoControl {
             String query = "update Equipo SET nombre_equipo = ?, pais_origen = ?  where nombre_equipo = ?";
             conector.modificar(query, equipo, antiguo);
             JOptionPane.showMessageDialog(null, "Modificacion realizada con exito!");
-        } catch (Exception e) {
+        } catch (HeadlessException e) {
             JOptionPane.showMessageDialog(null, "No se pudo realizar la modificacion....Intentelo de nuevo");
         }
     }
-    
+
     public void eliminarEquipo(String nombre) {
         iniciarConector();
         Equipo antiguo = new Equipo(nombre, "");
@@ -122,16 +124,17 @@ public class EquipoControl {
         }
     }
     
-    public void iniciarConector(){
+    //Se inicializa el Conector para la gestión de Equipos
+    public void iniciarConector() {
         conector.setConexion(conexion);
     }
-    
+
     public Conexion getConexion() {
         return conexion;
     }
-    
+
     public void setConexion(Conexion conexion) {
         this.conexion = conexion;
     }
-    
+
 }

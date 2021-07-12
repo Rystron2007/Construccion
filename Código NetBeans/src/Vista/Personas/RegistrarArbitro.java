@@ -33,7 +33,7 @@ public class RegistrarArbitro extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new Establecer_fondo("/imagenes/fondo1.jpg");
+        jPanel2 = new EstablecerFondo("/imagenes/fondo1.jpg");
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();

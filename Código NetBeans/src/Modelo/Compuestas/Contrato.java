@@ -1,6 +1,7 @@
 package Modelo.Compuestas;
 
 import Modelo.Simples.DirectorTecnico;
+import Modelo.Simples.Equipo;
 import Modelo.Simples.Estado;
 import java.util.Date;
 
@@ -12,15 +13,17 @@ public class Contrato {
     private Date fechaFin;
     //Estado del Contrato (ACEPTADO, CANCELADO, PENDIENTE)
     private Estado estado;
+    private Equipo equipo;
     private DirectorTecnico directorTecnico;
 
     //Constructor Parametrizado
-    public Contrato(String codigoContrato, Date fechaInicio, Date fechaFin, Estado estado,
+    public Contrato(String codigoContrato, Date fechaInicio, Date fechaFin, Estado estado, Equipo equipo,
             DirectorTecnico directorTecnico) {
         this.codigoContrato = codigoContrato;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.estado = estado;
+        this.equipo = equipo;
         this.directorTecnico = directorTecnico;
     }
 
@@ -29,36 +32,44 @@ public class Contrato {
         return codigoContrato;
     }
 
-    public Date getFechaInicio() {
-        return fechaInicio;
-    }
-
-    public Date getFechaFin() {
-        return fechaFin;
-    }
-
-    public Estado getEstado() {
-        return estado;
-    }
-
-    public DirectorTecnico getDirectorTecnico() {
-        return directorTecnico;
-    }
-
     public void setCodigoContrato(String codigoContrato) {
         this.codigoContrato = codigoContrato;
+    }
+
+    public Date getFechaInicio() {
+        return fechaInicio;
     }
 
     public void setFechaInicio(Date fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
+    public Date getFechaFin() {
+        return fechaFin;
+    }
+
     public void setFechaFin(Date fechaFin) {
         this.fechaFin = fechaFin;
     }
 
+    public Estado getEstado() {
+        return estado;
+    }
+
     public void setEstado(Estado estado) {
         this.estado = estado;
+    }
+
+    public Equipo getEquipo() {
+        return equipo;
+    }
+
+    public void setEquipo(Equipo equipo) {
+        this.equipo = equipo;
+    }
+
+    public DirectorTecnico getDirectorTecnico() {
+        return directorTecnico;
     }
 
     public void setDirectorTecnico(DirectorTecnico directorTecnico) {

@@ -37,7 +37,7 @@ public class FrameEliminar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel_mostrar = new Establecer_fondo("/imagenes/fondo1.jpg");
+        panel_mostrar = new EstablecerFondo("/imagenes/fondo1.jpg");
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_Eq = new javax.swing.JTable();
         btnElimnar = new javax.swing.JButton();
@@ -174,11 +174,14 @@ public class FrameEliminar extends javax.swing.JFrame {
     }//GEN-LAST:event_mostrarActionPerformed
 
     private void volver1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volver1ActionPerformed
+        cerrarVentana();
+    }//GEN-LAST:event_volver1ActionPerformed
+
+    public void cerrarVentana() {
         FrameEquipo equipo = new FrameEquipo();
         equipo.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_volver1ActionPerformed
-
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnElimnar;
     private javax.swing.JLabel jLabel1;

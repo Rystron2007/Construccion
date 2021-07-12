@@ -36,7 +36,7 @@
   <SubComponents>
     <Container class="javax.swing.JPanel" name="panel_mostrar">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Establecer_fondo(&quot;/imagenes/fondo1.jpg&quot;)"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Controlador.EstablecerFondo(&quot;/imagenes/fondo1.jpg&quot;)"/>
       </AuxValues>
 
       <Layout>

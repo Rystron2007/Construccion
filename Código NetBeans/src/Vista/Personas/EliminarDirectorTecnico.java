@@ -30,7 +30,7 @@ public class EliminarDirectorTecnico extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new Establecer_fondo("/imagenes/fondo1.jpg");
+        jPanel2 = new EstablecerFondo("/imagenes/fondo1.jpg");
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();

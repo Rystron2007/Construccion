@@ -29,7 +29,7 @@ public class ModificarArbitro extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new Establecer_fondo("/imagenes/fondo1.jpg");
+        jPanel2 = new EstablecerFondo("/imagenes/fondo1.jpg");
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();

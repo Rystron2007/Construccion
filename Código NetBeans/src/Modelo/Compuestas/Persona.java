@@ -12,7 +12,6 @@ public class Persona {
     protected String email;
 
     public Persona() {
-
     }
 
     //Constructor Parametrizado
