@@ -19,8 +19,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Lozano
  */
 public class EquipoControl {
-    
-    //Atributos para la gestión de Equipos
+
     private String nombreEquipo;
     private String pais_origen;
     private Equipo equipo;
@@ -28,21 +27,31 @@ public class EquipoControl {
     private Conexion conexion;
     private DefaultTableModel tableModel;
 
-    //Constructor sin parametros usados para las busquedas 
+    /**
+     * Constructor Sin Parametros
+     */
     public EquipoControl() {
         this.conector = new EquipoDB();
         this.tableModel = new DefaultTableModel();
     }
-    
-    //Constructor con parametros usados para los registros y modificaciones
-    public EquipoControl(String nombre, String pais_origen) {
-        this.nombreEquipo = nombre;
-        this.pais_origen = pais_origen;
+
+    /**
+     * Constructor Parametrizado
+     *
+     * @param nombreEquipo
+     * @param paisOrigen
+     */
+    public EquipoControl(String nombreEquipo, String paisOrigen) {
+        this.nombreEquipo = nombreEquipo;
+        this.pais_origen = paisOrigen;
         this.equipo = new Equipo(this.nombreEquipo, this.pais_origen);
         this.conector = new EquipoDB();
         this.tableModel = new DefaultTableModel();
     }
 
+    /**
+     * Registrar Equipo en DataBase
+     */
     public void registrarEquipo() {
         iniciarConector();
         try {
@@ -54,10 +63,15 @@ public class EquipoControl {
         }
     }
 
-    public void listarEquipo(JTable tabla) {
+    /**
+     * Listar Equipos de DataBase
+     *
+     * @param tablaEquipo
+     */
+    public void listarEquipo(JTable tablaEquipo) {
         iniciarConector();
         try {
-            tableModel = (DefaultTableModel) tabla.getModel();
+            tableModel = (DefaultTableModel) tablaEquipo.getModel();
             List<Equipo> lista = conector.listar();
             Object[] ob = new Object[2];
             for (int i = 0; i < lista.size(); i++) {
@@ -65,23 +79,29 @@ public class EquipoControl {
                 ob[1] = lista.get(i).getPaisOrigen();
                 tableModel.addRow(ob);
             }
-            tabla.setModel(tableModel);
+            tablaEquipo.setModel(tableModel);
             JOptionPane.showMessageDialog(null, "Busqueda con exito!");
         } catch (HeadlessException e) {
             JOptionPane.showMessageDialog(null, "No se pudo realizar la busqueda....Intentelo de nuevo");
         }
     }
 
-    public void buscarEquipo(JTable tabla, String nombre) {
+    /**
+     * Buscar Equipo en DataBase
+     *
+     * @param tablaEquipo
+     * @param nombreBuscado
+     */
+    public void buscarEquipo(JTable tablaEquipo, String nombreBuscado) {
         iniciarConector();
         boolean validar = false;
         try {
-            tableModel = (DefaultTableModel) tabla.getModel();
+            tableModel = (DefaultTableModel) tablaEquipo.getModel();
             tableModel.setRowCount(0);
-            List<Equipo> lista = conector.buscar(nombre);
+            List<Equipo> lista = conector.buscar(nombreBuscado);
             Object[] ob = new Object[2];
             for (int i = 0; i < lista.size(); i++) {
-                if (lista.get(i).getNombreEquipo().compareTo(nombre) == 0) {
+                if (lista.get(i).getNombreEquipo().compareTo(nombreBuscado) == 0) {
                     ob[0] = lista.get(i).getNombreEquipo();
                     ob[1] = lista.get(i).getPaisOrigen();
                     tableModel.addRow(ob);
@@ -89,7 +109,7 @@ public class EquipoControl {
                 }
             }
             if (validar) {
-                tabla.setModel(tableModel);
+                tablaEquipo.setModel(tableModel);
                 JOptionPane.showMessageDialog(null, "Busqueda con exito!");
             } else {
                 JOptionPane.showMessageDialog(null, "No existe el equipo");
@@ -100,9 +120,14 @@ public class EquipoControl {
         }
     }
 
-    public void actualizarEquipo(String nombre) {
+    /**
+     * Actualizar Equipo en DataBase
+     *
+     * @param nombreBuscado
+     */
+    public void actualizarEquipo(String nombreBuscado) {
         iniciarConector();
-        Equipo antiguo = new Equipo(nombre, "");
+        Equipo antiguo = new Equipo(nombreBuscado, "");
         try {
             String query = "update Equipo SET nombre_equipo = ?, pais_origen = ?  where nombre_equipo = ?";
             conector.modificar(query, equipo, antiguo);
@@ -112,9 +137,14 @@ public class EquipoControl {
         }
     }
 
-    public void eliminarEquipo(String nombre) {
+    /**
+     * Eliminar Equipo de DataBase
+     *
+     * @param nombreBuscado
+     */
+    public void eliminarEquipo(String nombreBuscado) {
         iniciarConector();
-        Equipo antiguo = new Equipo(nombre, "");
+        Equipo antiguo = new Equipo(nombreBuscado, "");
         try {
             String query = "delete from Equipo where nombre_equipo = ?";
             conector.remover(query, antiguo);
@@ -123,16 +153,28 @@ public class EquipoControl {
             JOptionPane.showMessageDialog(null, "No se pudo realizar la eliminación....Intentelo de nuevo");
         }
     }
-    
-    //Se inicializa el Conector para la gestión de Equipos
+
+    /**
+     * Iniciar Conexión a DataBase
+     */
     public void iniciarConector() {
         conector.setConexion(conexion);
     }
 
+    /**
+     * Retornar Conexión
+     *
+     * @return
+     */
     public Conexion getConexion() {
         return conexion;
     }
 
+    /**
+     * Asignar Conexión
+     *
+     * @param conexion
+     */
     public void setConexion(Conexion conexion) {
         this.conexion = conexion;
     }

@@ -16,15 +16,22 @@ public class FrameBuscar extends javax.swing.JFrame {
     /**
      * Creates new form Mostrar_Equipos
      */
-    boolean validar = false;
+    boolean validarEquipo = false;
 
+    /**
+     *
+     */
     public FrameBuscar() {
         initComponents();
     }
 
+    /**
+     *
+     * @param validar
+     */
     public FrameBuscar(boolean validar) {
         initComponents();
-        this.validar = validar;
+        this.validarEquipo = validar;
     }
 
     /**
@@ -158,7 +165,7 @@ public class FrameBuscar extends javax.swing.JFrame {
         String nombre = txtNombre.getText();
         EquipoControl equipo = new EquipoControl();
         equipo.buscarEquipo(tabla_Eq, nombre);
-        if (validar) {
+        if (validarEquipo) {
             FrameModificar vent = new FrameModificar(nombre);
             vent.setVisible(true);
             this.dispose();
@@ -174,6 +181,9 @@ public class FrameBuscar extends javax.swing.JFrame {
         cerrarVentana();
     }//GEN-LAST:event_volver1ActionPerformed
 
+    /**
+     *
+     */
     public void cerrarVentana(){
         FrameEquipo equipo = new FrameEquipo();
         equipo.setVisible(true);

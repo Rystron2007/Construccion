@@ -14,12 +14,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-
 /**
  *
  * @author Eileen
  */
 public class PersonaControl {
+
     protected String cedula;
     protected String nombres;
     protected String apellidos;
@@ -30,16 +30,14 @@ public class PersonaControl {
     private PersonaDB conector;
     private Conexion conexion;
     private DefaultTableModel tableModel;
-    
-    
+
     //Constructor sin parametros usados para las busquedas 
     public PersonaControl() {
         this.conector = new PersonaDB();
         this.tableModel = new DefaultTableModel();
     }
-    
-    //Constructor con parametros usados para los registros y modificaciones
 
+    //Constructor con parametros usados para los registros y modificaciones
     public PersonaControl(String ced, String nombres, String apellidos, int edad, String direccion, String email) {
         this.cedula = ced;
         this.nombres = nombres;
@@ -51,8 +49,7 @@ public class PersonaControl {
         this.conector = new PersonaDB();
         this.tableModel = new DefaultTableModel();
     }
-    
-    
+
     public void registrarPersona() {
         conector.setConexion(conexion);
         try {
@@ -61,9 +58,9 @@ public class PersonaControl {
             JOptionPane.showMessageDialog(null, "Registro realizado con exito!");
         } catch (HeadlessException e) {
             JOptionPane.showMessageDialog(null, "No se pudo realizar el registro....Intentelo de nuevo");
-        }   
+        }
     }
-    
+
     public void actualizarPersona(String cedula) {
         conector.setConexion(conexion);
         Persona antiguo = new Persona(cedula, "", "", 0, "", "");
@@ -75,7 +72,7 @@ public class PersonaControl {
             JOptionPane.showMessageDialog(null, "No se pudo realizar la modificacion....Intentelo de nuevo");
         }
     }
-    
+
     public void buscarPersona(JTable tabla, String cedula) {
         conector.setConexion(conexion);
         boolean validar = false;
@@ -107,7 +104,7 @@ public class PersonaControl {
             JOptionPane.showMessageDialog(null, "No se pudo realizar la busqueda....Intentelo de nuevo");
         }
     }
-    
+
     public void listarPersona(JTable tabla) {
         conector.setConexion(conexion);
         try {
@@ -129,7 +126,7 @@ public class PersonaControl {
             JOptionPane.showMessageDialog(null, "No se pudo realizar la busqueda....Intentelo de nuevo");
         }
     }
-    
+
     public void eliminarPersona(String cedula) {
         conector.setConexion(conexion);
         Persona antiguo = new Persona(cedula, "", "", 0, "", "");
@@ -141,7 +138,7 @@ public class PersonaControl {
             JOptionPane.showMessageDialog(null, "No se pudo realizar la eliminación....Intentelo de nuevo");
         }
     }
-    
+
     public Conexion getConexion() {
         return conexion;
     }
@@ -149,5 +146,5 @@ public class PersonaControl {
     public void setConexion(Conexion conexion) {
         this.conexion = conexion;
     }
- 
+
 }

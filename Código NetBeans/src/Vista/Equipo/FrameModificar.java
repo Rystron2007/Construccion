@@ -17,10 +17,19 @@ public class FrameModificar extends javax.swing.JFrame {
      * Creates new form FrameModificar
      */
     String nombre;
+
+    /**
+     *
+     */
     public FrameModificar() {
         initComponents();
     }
-     public FrameModificar(String nombre) {
+
+    /**
+     *
+     * @param nombre
+     */
+    public FrameModificar(String nombre) {
         initComponents();
         this.nombre=nombre;
     }
@@ -157,15 +166,18 @@ public class FrameModificar extends javax.swing.JFrame {
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         String nombre1=txtNombre.getText();
         String pais=txtpais.getText();
-        EquipoControl adminEq= new EquipoControl(nombre1,pais);
-        adminEq.actualizarEquipo(nombre);
-        adminEq.buscarEquipo(tabla_Eq,nombre1);
+        EquipoControl equipoControl= new EquipoControl(nombre1,pais);
+        equipoControl.actualizarEquipo(nombre);
+        equipoControl.buscarEquipo(tabla_Eq,nombre1);
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void volver1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volver1ActionPerformed
         cerrarVentana();
     }//GEN-LAST:event_volver1ActionPerformed
 
+    /**
+     *
+     */
     public void cerrarVentana() {
         FrameEquipo equipo = new FrameEquipo();
         equipo.setVisible(true);

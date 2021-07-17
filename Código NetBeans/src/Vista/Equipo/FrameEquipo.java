@@ -33,7 +33,7 @@ public class FrameEquipo extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new EstablecerFondo("/imagenes/fondo1.jpg");
+        jPanel1 = new Controlador.EstablecerFondo("/imagenes/fondo1.jpg");
         registrarEquipos = new javax.swing.JButton();
         modificarEquipos = new javax.swing.JButton();
         buscarEquipos1 = new javax.swing.JButton();

@@ -13,6 +13,10 @@ import Vista.Login.FrameLogin;
  */
 public class Main {
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         FrameLogin login = new FrameLogin();
         login.setVisible(true);

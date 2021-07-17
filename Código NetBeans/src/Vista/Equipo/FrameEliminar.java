@@ -19,10 +19,17 @@ public class FrameEliminar extends javax.swing.JFrame {
      */
     boolean validar = false;
 
+    /**
+     *
+     */
     public FrameEliminar() {
         initComponents();
     }
 
+    /**
+     *
+     * @param validar
+     */
     public FrameEliminar(boolean validar) {
         initComponents();
         this.validar = validar;
@@ -157,11 +164,14 @@ public class FrameEliminar extends javax.swing.JFrame {
 
     private void btnElimnarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimnarActionPerformed
         String nombre = txtNombre.getText();
-        EquipoControl equipo = new EquipoControl();
+        EquipoControl equipoControl = new EquipoControl();
         limpiarTabla();
-        equipo.eliminarEquipo(nombre);
+        equipoControl.eliminarEquipo(nombre);
     }//GEN-LAST:event_btnElimnarActionPerformed
 
+    /**
+     *
+     */
     public void limpiarTabla() {
         DefaultTableModel tableModel = (DefaultTableModel) tabla_Eq.getModel();
         tableModel.setRowCount(0);
@@ -177,6 +187,9 @@ public class FrameEliminar extends javax.swing.JFrame {
         cerrarVentana();
     }//GEN-LAST:event_volver1ActionPerformed
 
+    /**
+     *
+     */
     public void cerrarVentana() {
         FrameEquipo equipo = new FrameEquipo();
         equipo.setVisible(true);

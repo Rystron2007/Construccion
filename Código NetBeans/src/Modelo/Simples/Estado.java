@@ -1,6 +1,23 @@
 package Modelo.Simples;
 
-//Tipos de Estado para el Contrato
+/**
+ *
+ * @author John
+ */
 public enum Estado {
-    ACEPTADO, RECHAZADO, PENDIENTE
+
+    /**
+     *
+     */
+    ACEPTADO,
+
+    /**
+     *
+     */
+    RECHAZADO,
+
+    /**
+     *
+     */
+    PENDIENTE
 }

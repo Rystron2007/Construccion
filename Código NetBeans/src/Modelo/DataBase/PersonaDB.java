@@ -27,7 +27,13 @@ public class PersonaDB implements CRUD{
     private ResultSet result;
     private Conexion conexion;
     
-    
+    /**
+     *
+     * @param query
+     * @param objeto
+     * @return
+     * @throws SQLException
+     */
     public int iniciarStatement(String query, Object objeto) throws SQLException {
         try {
             Persona persona = (Persona) objeto;
@@ -45,6 +51,11 @@ public class PersonaDB implements CRUD{
     }
     
     //Valida que el Registro se haya realizado correctamente
+
+    /**
+     *
+     * @param valor
+     */
     public void validarStatement(int valor) {
         if (valor == 1) {
             JOptionPane.showMessageDialog(null, "¡Se registró correctamente!", "Registro Completo", JOptionPane.INFORMATION_MESSAGE);
@@ -53,6 +64,11 @@ public class PersonaDB implements CRUD{
         }
     }
     
+    /**
+     *
+     * @param query
+     * @param objeto
+     */
     @Override
     public void registrar(String query, Object objeto) {
         try {
@@ -63,6 +79,12 @@ public class PersonaDB implements CRUD{
         }
     }
     
+    /**
+     *
+     * @param query
+     * @param objeto
+     * @param ob
+     */
     @Override
     public void modificar(String query, Object objeto,Object ob) {
         Persona persona = (Persona) objeto;
@@ -85,7 +107,12 @@ public class PersonaDB implements CRUD{
         }
     }
     
-    
+    /**
+     *
+     * @param query
+     * @param objeto
+     * @param ob
+     */
     public void modificar2(String query, Object objeto, Object ob) {
         Persona persona = (Persona) objeto;
         Persona antiguo = (Persona) ob;
@@ -109,6 +136,11 @@ public class PersonaDB implements CRUD{
         }
     }
         
+    /**
+     *
+     * @param query
+     * @param objeto
+     */
     @Override
     public void remover(String query,Object objeto) {
         Persona persona = (Persona) objeto;
@@ -126,7 +158,12 @@ public class PersonaDB implements CRUD{
         }
     }   
     
-   @Override
+    /**
+     *
+     * @param cedula
+     * @return
+     */
+    @Override
     //Metodo para imprimir en consola
     public List buscar(String cedula) {
         String query = "select cedula, nombres, apellidos, edad, direccion, email from PERSONA where cedula = '" + cedula + "'";
@@ -151,6 +188,10 @@ public class PersonaDB implements CRUD{
         return datos;
     }
     
+    /**
+     *
+     * @return
+     */
     public List listar() {
         List<Persona> datos = new ArrayList<>();
         String query = "select cedula, nombres, apellidos, edad, direccion, email from PERSONA";
@@ -176,10 +217,18 @@ public class PersonaDB implements CRUD{
         return datos;
     }
     
+    /**
+     *
+     * @return
+     */
     public Conexion getConexion() {
         return conexion;
     }
 
+    /**
+     *
+     * @param conexion
+     */
     public void setConexion(Conexion conexion) {
         this.conexion = conexion;
     }

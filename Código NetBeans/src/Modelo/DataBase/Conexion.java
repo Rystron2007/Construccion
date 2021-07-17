@@ -5,12 +5,20 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
+/**
+ *
+ * @author John
+ */
 public class Conexion {
 
     private static String databaseURL;
     private static String user;
     private static String password;
 
+    /**
+     *
+     * @return
+     */
     public static Connection getConnection() {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -23,18 +31,33 @@ public class Conexion {
         return null;
     }
 
+    /**
+     *
+     * @param user
+     * @param password
+     * @param port
+     */
     public static void iniciarDatos(String user, String password, String port) {
-        Conexion.databaseURL = "jdbc:oracle:thin:@localhost:"+port+":Xe";
+        Conexion.databaseURL = "jdbc:oracle:thin:@192.168.100.229:" + port + ":Xe";
         Conexion.user = user;
         Conexion.password = password;
     }
 
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     public static Connection iniciarConexion() throws SQLException {
         Connection connector = DriverManager.getConnection(Conexion.databaseURL, Conexion.user, Conexion.password);
         validarConexion(connector);
         return connector;
     }
 
+    /**
+     *
+     * @param connector
+     */
     public static void validarConexion(Connection connector) {
         if (connector != null) {
             JOptionPane.showMessageDialog(null, "¡Conectado Exitosamente!", "Conexion Establecida", JOptionPane.INFORMATION_MESSAGE);

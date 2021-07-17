@@ -4,6 +4,10 @@ import Controlador.*;
 import Modelo.DataBase.Conexion;
 import javax.swing.JOptionPane;
 
+/**
+ *
+ * @author John
+ */
 public class FrameRegistrar extends javax.swing.JFrame {
 
     /**
@@ -149,6 +153,11 @@ public class FrameRegistrar extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    /**
+     *
+     * @return
+     */
     public int validarCampos() {
         return txtNombreEquipo.getText().isEmpty() || txtPaisOrigen.getText().isEmpty() ? 1 : 0;
     }
@@ -157,6 +166,9 @@ public class FrameRegistrar extends javax.swing.JFrame {
         cerrarVentana();
     }//GEN-LAST:event_btnVolverActionPerformed
 
+    /**
+     *
+     */
     public void cerrarVentana() {
         FrameEquipo equipo = new FrameEquipo();
         equipo.setVisible(true);

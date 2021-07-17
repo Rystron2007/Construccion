@@ -1,7 +1,6 @@
 package Modelo.DataBase;
 
 import Modelo.Interfaces.CRUD;
-import Modelo.DataBase.Conexion;
 import Modelo.Simples.Equipo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +12,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
+/**
+ *
+ * @author John
+ */
 public class EquipoDB implements CRUD {
 
     private Connection connector;
@@ -20,6 +23,13 @@ public class EquipoDB implements CRUD {
     private ResultSet result;
     private Conexion conexion;
 
+    /**
+     *
+     * @param query
+     * @param objeto
+     * @return
+     * @throws SQLException
+     */
     public int iniciarStatement(String query, Object objeto) throws SQLException {
         try {
             Equipo equipo = (Equipo) objeto;
@@ -32,15 +42,23 @@ public class EquipoDB implements CRUD {
         return statement.executeUpdate();
     }
 
-    //Válida que el Registro se realizó correctamente
-    public void validarStatement(int valor) {
-        if (valor == 1) {
+    /**
+     *
+     * @param equipoRegistrado
+     */
+    public void validarStatement(int equipoRegistrado) {
+        if (equipoRegistrado == 1) {
             JOptionPane.showMessageDialog(null, "¡Se registró correctamente el EQUIPO!", "Registro Completo", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "Datos incongruentes, porfavor revise la información", "Registro Incompleto", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
+    /**
+     *
+     * @param query
+     * @param objeto
+     */
     @Override
     public void registrar(String query, Object objeto) {
         try {
@@ -51,8 +69,12 @@ public class EquipoDB implements CRUD {
         }
     }
 
-    
-
+    /**
+     *
+     * @param query
+     * @param objeto
+     * @param ob
+     */
     public void modificar(String query, Object objeto, Object ob) {
         Equipo equipo = (Equipo) objeto;
         Equipo antiguo = (Equipo) ob;
@@ -72,8 +94,13 @@ public class EquipoDB implements CRUD {
         }
     }
 
+    /**
+     *
+     * @param query
+     * @param objeto
+     */
     @Override
-    public void remover(String query,Object objeto) {
+    public void remover(String query, Object objeto) {
         Equipo equipo = (Equipo) objeto;
         int answer = 0;
         try {
@@ -89,6 +116,11 @@ public class EquipoDB implements CRUD {
         }
     }
 
+    /**
+     *
+     * @param nombre
+     * @return
+     */
     @Override
     //Metodo para imprimir en consola
     public List buscar(String nombre) {
@@ -110,6 +142,10 @@ public class EquipoDB implements CRUD {
         return datos;
     }
 
+    /**
+     *
+     * @return
+     */
     public List listar() {
         List<Equipo> datos = new ArrayList<>();
         String query = "select nombre_equipo, pais_origen from Equipo";
@@ -131,10 +167,18 @@ public class EquipoDB implements CRUD {
         return datos;
     }
 
+    /**
+     *
+     * @return
+     */
     public Conexion getConexion() {
         return conexion;
     }
 
+    /**
+     *
+     * @param conexion
+     */
     public void setConexion(Conexion conexion) {
         this.conexion = conexion;
     }

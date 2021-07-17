@@ -2,26 +2,48 @@ package Modelo.Simples;
 
 import Modelo.Compuestas.Persona;
 
+/**
+ *
+ * @author John
+ */
 public class Arbitro extends Persona {
 
-    //Cantidad de Partidos Arbitrados con Anterioridad (Experiencia)
     private int partidosArbitrados;
 
-    //Constructor Parametrizado
+    /**
+     *
+     * @param cedula
+     * @param nombres
+     * @param apellidos
+     * @param edad
+     * @param direccion
+     * @param email
+     * @param partidosArbitrados
+     */
     public Arbitro(String cedula, String nombres, String apellidos, int edad, String direccion, String email,
-            int partidosArbitrados) { 
+            int partidosArbitrados) {
         this.partidosArbitrados = partidosArbitrados;
     }
 
+    /**
+     *
+     */
     public Arbitro() {
 
     }
 
-    //Metodos GET y SET
+    /**
+     *
+     * @return
+     */
     public int getPartidosArbitrados() {
         return partidosArbitrados;
     }
 
+    /**
+     *
+     * @param partidosArbitrados
+     */
     public void setPartidosArbitrados(int partidosArbitrados) {
         this.partidosArbitrados = partidosArbitrados;
     }
