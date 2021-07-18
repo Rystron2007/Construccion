@@ -164,7 +164,7 @@ public class FrameEliminar extends javax.swing.JFrame {
 
     private void btnElimnarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimnarActionPerformed
         String nombre = txtNombre.getText();
-        EquipoControl equipoControl = new EquipoControl();
+        ControlEquipo equipoControl = new ControlEquipo();
         limpiarTabla();
         equipoControl.eliminarEquipo(nombre);
     }//GEN-LAST:event_btnElimnarActionPerformed
@@ -179,7 +179,7 @@ public class FrameEliminar extends javax.swing.JFrame {
     }
 
     private void mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarActionPerformed
-        EquipoControl equipo = new EquipoControl();
+        ControlEquipo equipo = new ControlEquipo();
         equipo.listarEquipo(tabla_Eq);
     }//GEN-LAST:event_mostrarActionPerformed
 

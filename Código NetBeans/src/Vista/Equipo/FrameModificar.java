@@ -166,8 +166,8 @@ public class FrameModificar extends javax.swing.JFrame {
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         String nombre1=txtNombre.getText();
         String pais=txtpais.getText();
-        EquipoControl equipoControl= new EquipoControl(nombre1,pais);
-        equipoControl.actualizarEquipo(nombre);
+        ControlEquipo equipoControl= new ControlEquipo(nombre1,pais);
+        equipoControl.modificarEquipo(nombre);
         equipoControl.buscarEquipo(tabla_Eq,nombre1);
     }//GEN-LAST:event_btnModificarActionPerformed
 

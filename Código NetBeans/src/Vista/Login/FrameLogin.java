@@ -189,9 +189,8 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
-        Conexion conexion = new Conexion();
-        conexion.iniciarDatos(txtUsuario.getText(), txtContraseña.getText(), cbPuerto.getSelectedItem().toString());
-        if (conexion.getConnection() != null) {
+        Conexion.iniciarDatos(txtUsuario.getText(),txtContraseña.getText());
+        if (Conexion.establecerConexion() != null) {
             FrameEquipo equipo = new FrameEquipo();
             equipo.setVisible(true);
             this.dispose();

@@ -21,7 +21,10 @@ public class EquipoDB implements CRUD {
     private Connection connector;
     private PreparedStatement statement;
     private ResultSet result;
-    private Conexion conexion;
+
+    public EquipoDB() {
+        this.connector = Conexion.establecerConexion();
+    }
 
     /**
      *
@@ -62,7 +65,6 @@ public class EquipoDB implements CRUD {
     @Override
     public void registrar(String query, Object objeto) {
         try {
-            connector = this.conexion.getConnection();
             validarStatement(iniciarStatement(query, objeto));
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Fallo de Consulta", "Registro Fallido", JOptionPane.ERROR_MESSAGE);
@@ -75,20 +77,17 @@ public class EquipoDB implements CRUD {
      * @param objeto
      * @param ob
      */
+    @Override
     public void modificar(String query, Object objeto, Object ob) {
         Equipo equipo = (Equipo) objeto;
         Equipo antiguo = (Equipo) ob;
-        int answer = 0;
         try {
-            connector = Conexion.getConnection();
             statement = connector.prepareStatement(query);
             statement.setString(1, equipo.getNombreEquipo());
             statement.setString(2, equipo.getPaisOrigen());
             statement.setString(3, antiguo.getNombreEquipo());
-            answer = statement.executeUpdate();
-            if (answer == 1) {
-                System.out.println("Modificado Exitosamente!");
-            }
+            statement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "¡Se modificó correctamente al EQUIPO!", "Modificar Completo", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException ex) {
             Logger.getLogger(EquipoDB.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -102,15 +101,11 @@ public class EquipoDB implements CRUD {
     @Override
     public void remover(String query, Object objeto) {
         Equipo equipo = (Equipo) objeto;
-        int answer = 0;
         try {
-            connector = Conexion.getConnection();
             statement = connector.prepareStatement(query);
             statement.setString(1, equipo.getNombreEquipo());
-            answer = statement.executeUpdate();
-            if (answer == 1) {
-                System.out.println("Eliminado Exitosamente!");
-            }
+            statement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "¡Se eliminó correctamente el EQUIPO!", "Eliminar Completo", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException ex) {
             Logger.getLogger(EquipoDB.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -118,16 +113,15 @@ public class EquipoDB implements CRUD {
 
     /**
      *
-     * @param nombre
+     * @param equipoBuscado
      * @return
      */
     @Override
     //Metodo para imprimir en consola
-    public List buscar(String nombre) {
-        String query = "select nombre_equipo, pais_origen from Equipo where nombre_equipo = '" + nombre + "'";
+    public List buscar(String equipoBuscado) {
+        String query = "select nombre_equipo, pais_origen from Equipo where nombre_equipo = '" + equipoBuscado + "'";
         List<Equipo> datos = new ArrayList<>();
         try {
-            connector = Conexion.getConnection();
             statement = connector.prepareStatement(query);
             result = statement.executeQuery();
             while (result.next()) {
@@ -136,6 +130,7 @@ public class EquipoDB implements CRUD {
                 equipo.setPaisOrigen(result.getString(2));
                 datos.add(equipo);
             }
+            JOptionPane.showMessageDialog(null, "¡Se encontró correctamente al EQUIPO!", "Buscar Completo", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException ex) {
             Logger.getLogger(EquipoDB.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -150,7 +145,6 @@ public class EquipoDB implements CRUD {
         List<Equipo> datos = new ArrayList<>();
         String query = "select nombre_equipo, pais_origen from Equipo";
         try {
-            connector = Conexion.getConnection();
             statement = connector.prepareStatement(query);
             result = statement.executeQuery();
 
@@ -165,22 +159,6 @@ public class EquipoDB implements CRUD {
             Logger.getLogger(EquipoDB.class.getName()).log(Level.SEVERE, null, ex);
         }
         return datos;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public Conexion getConexion() {
-        return conexion;
-    }
-
-    /**
-     *
-     * @param conexion
-     */
-    public void setConexion(Conexion conexion) {
-        this.conexion = conexion;
     }
 
 }

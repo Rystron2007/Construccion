@@ -10,7 +10,7 @@ public class Equipo {
     private String paisOrigen;
 
     /**
-     *
+     * Constructor Parametrizado
      * @param nombreEquipo
      * @param paisOrigen
      */
@@ -20,13 +20,13 @@ public class Equipo {
     }
 
     /**
-     *
+     * Constructor sin Parametros
      */
     public Equipo() {
     }
 
     /**
-     *
+     * Obtiene el Nombre del Equipo
      * @return
      */
     public String getNombreEquipo() {
@@ -34,7 +34,7 @@ public class Equipo {
     }
 
     /**
-     *
+     * Inserta el Nombre del Equipo
      * @param nombreEquipo
      */
     public void setNombreEquipo(String nombreEquipo) {
@@ -42,7 +42,7 @@ public class Equipo {
     }
 
     /**
-     *
+     * Obtiene el Pais de Origen
      * @return
      */
     public String getPaisOrigen() {
@@ -50,7 +50,7 @@ public class Equipo {
     }
 
     /**
-     *
+     * Inserta el Pais de Origen
      * @param paisOrigen
      */
     public void setPaisOrigen(String paisOrigen) {

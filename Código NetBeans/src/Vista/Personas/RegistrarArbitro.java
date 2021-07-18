@@ -218,7 +218,7 @@ public class RegistrarArbitro extends javax.swing.JFrame {
         int edad = Integer.parseInt(txtEdad.getText());
         String direccion = txtDireccion.getText();
         String email = txtEmail.getText();
-        PersonaControl personaControl = new PersonaControl(cedula, nombres, apellidos, edad, direccion, email);
+        ControlPersona personaControl = new ControlPersona(cedula, nombres, apellidos, edad, direccion, email);
         personaControl.setConexion(conexion);
         personaControl.registrarPersona();
     }//GEN-LAST:event_btnGuardarActionPerformed

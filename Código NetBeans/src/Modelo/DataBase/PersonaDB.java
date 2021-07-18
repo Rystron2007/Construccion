@@ -72,7 +72,7 @@ public class PersonaDB implements CRUD{
     @Override
     public void registrar(String query, Object objeto) {
         try {
-            connector = this.conexion.getConnection();
+            connector = Conexion.establecerConexion();
             validarStatement(iniciarStatement(query, objeto));
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Fallo de Registro", "Registro Fallido", JOptionPane.ERROR_MESSAGE);
@@ -90,7 +90,7 @@ public class PersonaDB implements CRUD{
         Persona persona = (Persona) objeto;
         int answer = 0;
         try {
-            connector = Conexion.getConnection();
+            connector = Conexion.establecerConexion();
             statement = connector.prepareStatement(query);
             statement.setString(1, persona.getCedula());
             statement.setString(2, persona.getNombres());
@@ -118,7 +118,7 @@ public class PersonaDB implements CRUD{
         Persona antiguo = (Persona) ob;
         int answer = 0;
         try {
-            connector = Conexion.getConnection();
+            connector = Conexion.establecerConexion();
             statement = connector.prepareStatement(query);
             statement.setString(1, persona.getCedula());
             statement.setString(2, persona.getNombres());
@@ -146,7 +146,7 @@ public class PersonaDB implements CRUD{
         Persona persona = (Persona) objeto;
         int answer = 0;
         try {
-            connector = Conexion.getConnection();
+            connector = Conexion.establecerConexion();
             statement = connector.prepareStatement(query);
             statement.setString(1, persona.getCedula());
             answer = statement.executeUpdate();
@@ -169,7 +169,7 @@ public class PersonaDB implements CRUD{
         String query = "select cedula, nombres, apellidos, edad, direccion, email from PERSONA where cedula = '" + cedula + "'";
         List<Persona> datos = new ArrayList<>();
         try {
-            connector = Conexion.getConnection();
+            connector = Conexion.establecerConexion();
             statement = connector.prepareStatement(query);
             result = statement.executeQuery();
             while (result.next()) {
@@ -196,7 +196,7 @@ public class PersonaDB implements CRUD{
         List<Persona> datos = new ArrayList<>();
         String query = "select cedula, nombres, apellidos, edad, direccion, email from PERSONA";
         try {
-            connector = Conexion.getConnection();
+            connector = Conexion.establecerConexion();
             statement = connector.prepareStatement(query);
             result = statement.executeQuery();
 
@@ -221,7 +221,7 @@ public class PersonaDB implements CRUD{
      *
      * @return
      */
-    public Conexion getConexion() {
+    public Conexion establecerConexion() {
         return conexion;
     }
 

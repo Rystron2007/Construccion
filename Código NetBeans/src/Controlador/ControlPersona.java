@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Eileen
  */
-public class PersonaControl {
+public class ControlPersona {
 
     protected String cedula;
     protected String nombres;
@@ -32,13 +32,13 @@ public class PersonaControl {
     private DefaultTableModel tableModel;
 
     //Constructor sin parametros usados para las busquedas 
-    public PersonaControl() {
+    public ControlPersona() {
         this.conector = new PersonaDB();
         this.tableModel = new DefaultTableModel();
     }
 
     //Constructor con parametros usados para los registros y modificaciones
-    public PersonaControl(String ced, String nombres, String apellidos, int edad, String direccion, String email) {
+    public ControlPersona(String ced, String nombres, String apellidos, int edad, String direccion, String email) {
         this.cedula = ced;
         this.nombres = nombres;
         this.apellidos = apellidos;

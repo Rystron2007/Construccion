@@ -147,7 +147,7 @@ public class FrameRegistrar extends javax.swing.JFrame {
         } else {
             String nombreEquipo = txtNombreEquipo.getText();
             String paisOrigen = txtPaisOrigen.getText();
-            EquipoControl equipoControl = new EquipoControl(nombreEquipo, paisOrigen);
+            ControlEquipo equipoControl = new ControlEquipo(nombreEquipo, paisOrigen);
             equipoControl.registrarEquipo();
             cerrarVentana();
             this.dispose();
