@@ -22,7 +22,7 @@ public class ConexionTest {
      * Test of establecerConexion method, of class Conexion.
      */
     @Test
-    public void testEstablecerConexion() {
+    public void testEstablecerConexionCP002() {
         System.out.println("testEstablecerConexion");
         String user = "john";
         String password = "1234";

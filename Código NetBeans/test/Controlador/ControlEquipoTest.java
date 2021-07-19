@@ -7,10 +7,7 @@ package Controlador;
 
 import Modelo.DataBase.Conexion;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 import org.junit.Test;
-import static org.junit.Assert.*;
-
 /**
  *
  * @author John
@@ -22,20 +19,26 @@ public class ControlEquipoTest {
 
     public void inicioTest() {
         String user = "john";
-        String password = "1234";
+        String password = "12345";
         Conexion.iniciarDatos(user, password);
     }
 
+    /**
+     *
+     */
     @Test
-    public void testRegistrarEquipo() {
+    public void testRegistrarEquipoCP001() {
         System.out.println("registrarEquipo");
         inicioTest();
         ControlEquipo instance = new ControlEquipo("Guayaquil-FC", "Ecuador");
         instance.registrarEquipo();
     }
 
+    /**
+     *
+     */
     @Test
-    public void testEliminarEquipo() {
+    public void testEliminarEquipoCP003() {
         System.out.println("eliminarEquipo");
         inicioTest();
         String nombreBuscado = "Guayaquil-FC";
@@ -43,8 +46,11 @@ public class ControlEquipoTest {
         instance.eliminarEquipo(nombreBuscado);
     }
 
+    /**
+     *
+     */
     @Test
-    public void testBuscarEquipo() {
+    public void testBuscarEquipoCP004() {
         System.out.println("buscarEquipo");
         inicioTest();
         JTable tablaEquipo = new JTable();
@@ -53,47 +59,15 @@ public class ControlEquipoTest {
         instance.buscarEquipo(tablaEquipo, nombreBuscado);
     }
 
+    /**
+     *
+     */
     @Test
-    public void testActualizarEquipo() {
+    public void testActualizarEquipoCP005() {
         System.out.println("actualizarEquipo");
         inicioTest();
         String nombreBuscado = "Guayaquil-FC";
         ControlEquipo instance = new ControlEquipo();
         instance.modificarEquipo(nombreBuscado);
     }
-    /*
-  
-    
-    
-      
-    
-    @Test
-    public void testListarEquipo() {
-        System.out.println("listarEquipo");
-        JTable tablaEquipo = null;
-        ControlEquipo instance = new ControlEquipo();
-        instance.listarEquipo(tablaEquipo);
-        fail("The test case is a prototype.");
-    }
-
-    
-
-    @Test
-    public void testActualizarEquipo() {
-        System.out.println("modificarEquipo");
-        String nombreBuscado = "";
-        ControlEquipo instance = new ControlEquipo();
-        instance.modificarEquipo(nombreBuscado);
-        fail("The test case is a prototype.");
-    }
-
-   
-
-    @Test
-    public void testIniciarConector() {
-        System.out.println("iniciarConector");
-        ControlEquipo instance = new ControlEquipo();
-        instance.iniciarConector();
-        fail("The test case is a prototype.");
-    }*/
 }

@@ -42,6 +42,8 @@ public class Conexion {
     public static Connection validarConexion(Connection connector) {
         if (connector != null) {
             JOptionPane.showMessageDialog(null, "¡Conectado Exitosamente!", "Conexion Establecida", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "¡Error de Conexión!", "Conexion no Establecida", JOptionPane.ERROR_MESSAGE);
         }
         return connector;
     }
