@@ -1,2 +1,0 @@
-# Construccion
-Desarrollo del Proyecto
