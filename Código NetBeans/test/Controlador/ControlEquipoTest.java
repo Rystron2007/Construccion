@@ -31,7 +31,7 @@ public class ControlEquipoTest {
         System.out.println("registrarEquipo");
         inicioTest();
         ControlEquipo instance = new ControlEquipo("Guayaquil-FC", "Ecuador");
-        instance.registrarEquipo();
+        instance.insertarEquipo();
     }
 
     /**
@@ -56,7 +56,7 @@ public class ControlEquipoTest {
         JTable tablaEquipo = new JTable();
         String nombreBuscado = "Guayaquil-FC";
         ControlEquipo instance = new ControlEquipo();
-        instance.buscarEquipo(tablaEquipo, nombreBuscado);
+        instance.consultarEquipo(tablaEquipo, nombreBuscado);
     }
 
     /**
@@ -68,6 +68,6 @@ public class ControlEquipoTest {
         inicioTest();
         String nombreBuscado = "Guayaquil-FC";
         ControlEquipo instance = new ControlEquipo();
-        instance.modificarEquipo(nombreBuscado);
+        instance.actualizarEquipo(nombreBuscado);
     }
 }

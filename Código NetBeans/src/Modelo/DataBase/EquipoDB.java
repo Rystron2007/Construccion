@@ -27,9 +27,23 @@ public class EquipoDB implements CRUD {
     }
 
     /**
+     * Método para Validar un Statement
      *
-     * @param query
-     * @param objeto
+     * @param equipoRegistrado Comprueba si el Statement se creó Correctamente
+     */
+    public void validarStatement(int equipoRegistrado) {
+        if (equipoRegistrado == 1) {
+            JOptionPane.showMessageDialog(null, "¡Se registró correctamente el EQUIPO!", "Registro Completo", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Datos incongruentes, porfavor revise la información", "Registro Incompleto", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+    /**
+     * Método para Iniciar un Statement
+     *
+     * @param query Consulta a Realizar
+     * @param objeto Objeto a Preparar
      * @return
      * @throws SQLException
      */
@@ -46,24 +60,13 @@ public class EquipoDB implements CRUD {
     }
 
     /**
+     * Método para Insertar un Equipo en la Base de Datos
      *
-     * @param equipoRegistrado
-     */
-    public void validarStatement(int equipoRegistrado) {
-        if (equipoRegistrado == 1) {
-            JOptionPane.showMessageDialog(null, "¡Se registró correctamente el EQUIPO!", "Registro Completo", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(null, "Datos incongruentes, porfavor revise la información", "Registro Incompleto", JOptionPane.INFORMATION_MESSAGE);
-        }
-    }
-
-    /**
-     *
-     * @param query
-     * @param objeto
+     * @param query Consulta de Inserción
+     * @param objeto Objeto a Insertar
      */
     @Override
-    public void registrar(String query, Object objeto) {
+    public void insertar(String query, Object objeto) {
         try {
             validarStatement(iniciarStatement(query, objeto));
         } catch (SQLException ex) {
@@ -72,20 +75,21 @@ public class EquipoDB implements CRUD {
     }
 
     /**
+     * Método para Actualizar un Equipo en la Base de Datos
      *
-     * @param query
-     * @param objeto
-     * @param ob
+     * @param query Consulta de Actualización
+     * @param objeto Objeto a Actualizar
+     * @param objetoAntiguo Objeto a Comparar
      */
     @Override
-    public void modificar(String query, Object objeto, Object ob) {
+    public void actualizar(String query, Object objeto, Object objetoAntiguo) {
         Equipo equipo = (Equipo) objeto;
-        Equipo antiguo = (Equipo) ob;
+        Equipo equipoAntiguo = (Equipo) objetoAntiguo;
         try {
             statement = connector.prepareStatement(query);
             statement.setString(1, equipo.getNombreEquipo());
             statement.setString(2, equipo.getPaisOrigen());
-            statement.setString(3, antiguo.getNombreEquipo());
+            statement.setString(3, equipoAntiguo.getNombreEquipo());
             statement.executeUpdate();
             JOptionPane.showMessageDialog(null, "¡Se modificó correctamente al EQUIPO!", "Modificar Completo", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException ex) {
@@ -94,12 +98,13 @@ public class EquipoDB implements CRUD {
     }
 
     /**
+     * Método para Eliminar un Equipo en la Base de Datos
      *
-     * @param query
-     * @param objeto
+     * @param query Consulta de Eliminación
+     * @param objeto Objeto a Eliminar
      */
     @Override
-    public void remover(String query, Object objeto) {
+    public void eliminar(String query, Object objeto) {
         Equipo equipo = (Equipo) objeto;
         try {
             statement = connector.prepareStatement(query);
@@ -112,13 +117,13 @@ public class EquipoDB implements CRUD {
     }
 
     /**
+     * Método para Consultar un Equipo en la Base de Datos
      *
-     * @param equipoBuscado
+     * @param equipoBuscado Cédula para buscar un Director Técnico
      * @return
      */
     @Override
-    //Metodo para imprimir en consola
-    public List buscar(String equipoBuscado) {
+    public List consultar(String equipoBuscado) {
         String query = "select nombre_equipo, pais_origen from Equipo where nombre_equipo = '" + equipoBuscado + "'";
         List<Equipo> datos = new ArrayList<>();
         try {
@@ -138,6 +143,7 @@ public class EquipoDB implements CRUD {
     }
 
     /**
+     * Método para Listar a los Equipos de la Base de Datos
      *
      * @return
      */

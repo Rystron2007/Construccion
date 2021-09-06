@@ -6,6 +6,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
+ * Clase para establecer una Imagen de Fondo en cada Frame
  *
  * @author John
  */
@@ -15,9 +16,9 @@ public class EstablecerFondo extends JPanel {
     private String urlImagen;
 
     /**
-     * Constructor Parametrizado
+     * Constructor con Parámetros
      *
-     * @param urlImagen
+     * @param urlImagen: Ruta de la Imagen
      */
     public EstablecerFondo(String urlImagen) {
         this.urlImagen = urlImagen;

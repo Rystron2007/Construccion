@@ -8,15 +8,12 @@ package Vista;
 import Vista.Login.FrameLogin;
 
 /**
+ * Clase de Ejecución
  *
  * @author John
  */
 public class Main {
 
-    /**
-     *
-     * @param args
-     */
     public static void main(String[] args) {
         FrameLogin login = new FrameLogin();
         login.setVisible(true);

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controlador;
 
 import Modelo.DataBase.Conexion;
@@ -15,6 +10,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
+ * Clase para preparar los datos del Equipo a la Base de Datos
  *
  * @author Lozano
  */
@@ -34,10 +30,10 @@ public class ControlEquipo {
     }
 
     /**
-     * Constructor Parametrizado
+     * Constructor con Parámetros
      *
-     * @param nombreEquipo
-     * @param paisOrigen
+     * @param nombreEquipo Nombre del Equipo
+     * @param paisOrigen País de Origen del Equipo
      */
     public ControlEquipo(String nombreEquipo, String paisOrigen) {
         this.equipo = new Equipo(nombreEquipo, paisOrigen);
@@ -46,22 +42,22 @@ public class ControlEquipo {
     }
 
     /**
-     * Registrar Equipo en DataBase
+     * Método para preparar Inserción del Equipo
      */
-    public void registrarEquipo() {
+    public void insertarEquipo() {
 
         try {
             String query = "insert into Equipo (nombre_equipo, pais_origen) values (?,?)";
-            equipoDB.registrar(query, equipo);
+            equipoDB.insertar(query, equipo);
         } catch (HeadlessException e) {
             JOptionPane.showMessageDialog(null, "No se pudo realizar el registro....Intentelo de nuevo");
         }
     }
 
     /**
-     * Listar Equipos de DataBase
+     * Método para preparar Listado de los Equipos
      *
-     * @param tablaEquipo
+     * @param tablaEquipo Tabla de Presentación de los Equipos
      */
     public void listarEquipo(JTable tablaEquipo) {
 
@@ -82,16 +78,16 @@ public class ControlEquipo {
     }
 
     /**
-     * Buscar Equipo en DataBase
+     * Método para preparar Consulta del Equipo
      *
-     * @param tablaEquipo
-     * @param nombreBuscado
+     * @param tablaEquipo Tabla de Presentación de los Equipos
+     * @param nombreBuscado Nombre del Equipo a Consultar
      */
-    public void buscarEquipo(JTable tablaEquipo, String nombreBuscado) {
+    public void consultarEquipo(JTable tablaEquipo, String nombreBuscado) {
         try {
             tableModel = (DefaultTableModel) tablaEquipo.getModel();
             tableModel.setRowCount(0);
-            List<Equipo> lista = equipoDB.buscar(nombreBuscado);
+            List<Equipo> lista = equipoDB.consultar(nombreBuscado);
             Object[] ob = new Object[2];
             for (int i = 0; i < lista.size(); i++) {
                 if (lista.get(i).getNombreEquipo().compareTo(nombreBuscado) == 0) {
@@ -106,49 +102,48 @@ public class ControlEquipo {
     }
 
     /**
-     * Actualizar Equipo en DataBase
+     * Método para preparar Actualización del Equipo
      *
-     * @param nombreBuscado
+     * @param nombreBuscado Nombre del Equipo a Actualizar
      */
-    public void modificarEquipo(String nombreBuscado) {
-        equipo = new Equipo();
-        Equipo antiguo = new Equipo(nombreBuscado, "");
+    public void actualizarEquipo(String nombreBuscado) {
+        Equipo equipoAntiguo = new Equipo(nombreBuscado, "");
         try {
             String query = "update Equipo SET nombre_equipo = ?, pais_origen = ?  where nombre_equipo = ?";
-            equipoDB.modificar(query, equipo, antiguo);
+            equipoDB.actualizar(query, equipo, equipoAntiguo);
         } catch (HeadlessException e) {
             JOptionPane.showMessageDialog(null, "No se pudo realizar la modificacion....Intentelo de nuevo");
         }
     }
 
     /**
-     * Eliminar Equipo de DataBase
+     * Método para preparar Eliminación del Equipo
      *
-     * @param nombreBuscado
+     * @param nombreBuscado Nombre del Equipo a Eliminar
      */
     public void eliminarEquipo(String nombreBuscado) {
         Equipo antiguo = new Equipo(nombreBuscado, "");
         try {
             String query = "delete from Equipo where nombre_equipo = ?";
-            equipoDB.remover(query, antiguo);
+            equipoDB.eliminar(query, antiguo);
         } catch (HeadlessException e) {
             JOptionPane.showMessageDialog(null, "No se pudo realizar la eliminación....Intentelo de nuevo");
         }
     }
 
     /**
-     * Retornar Conexión
+     * Método para retornar la Conexión de la Base de Datos
      *
-     * @return
+     * @return Retorna la conexión Actual
      */
     public Conexion getConexion() {
         return conexion;
     }
 
     /**
-     * Asignar Conexión
+     * Método para recibir la Conexión con la Base de Datos
      *
-     * @param conexion
+     * @param conexion Objeto de tipo Conexión
      */
     public void setConexion(Conexion conexion) {
         this.conexion = conexion;

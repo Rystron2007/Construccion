@@ -8,18 +8,20 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
+ * Clase para Administrar la Conexión con la Base de Datos
  *
  * @author John
  */
 public class Conexion {
 
-    private static final String DATABASEURL = "jdbc:oracle:thin:@192.168.100.229:1522:XE";
+    private static final String DATABASEURL = "jdbc:oracle:thin:@localhost:1521:XE";
     private static String user;
     private static String password;
 
     /**
+     * Método para Establecer Conexión con la Base de Datos
      *
-     * @return
+     * @return Presenta NULL si no se Estableció Conexión
      */
     public static Connection establecerConexion() {
         try {
@@ -35,20 +37,27 @@ public class Conexion {
     }
 
     /**
+     * Método para Validar la Conexión con la Base de Datos
      *
-     * @param connector
+     * @param connector Objeto que contiene la Conexión con la Base de Datos
      * @return
      */
     public static Connection validarConexion(Connection connector) {
         if (connector != null) {
             JOptionPane.showMessageDialog(null, "¡Conectado Exitosamente!", "Conexion Establecida", JOptionPane.INFORMATION_MESSAGE);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "¡Error de Conexión!", "Conexion no Establecida", JOptionPane.ERROR_MESSAGE);
         }
         return connector;
     }
-    
-    public static void iniciarDatos(String user, String password){
+
+    /**
+     * Método para Validar la Conexión con la Base de Datos
+     *
+     * @param user Usuario para Iniciar Sesión en la Base de Datos
+     * @param password Contraseña para Iniciar Sesión en la Base de Datos
+     */
+    public static void iniciarDatos(String user, String password) {
         setUSER(user);
         setPASSWORD(password);
     }
@@ -68,6 +77,5 @@ public class Conexion {
     public static void setPASSWORD(String PASSWORD) {
         Conexion.password = PASSWORD;
     }
-    
-    
+
 }

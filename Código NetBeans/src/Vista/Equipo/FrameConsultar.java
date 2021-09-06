@@ -1,29 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vista.Equipo;
 
 import Controlador.*;
-import javax.swing.table.DefaultTableModel;
 
 /**
- * Frame para Eliminar los Equipos
+ * Frame para Consultar los Equipos
  *
  * @author Lozano
  */
-public class FrameEliminar extends javax.swing.JFrame {
+public class FrameConsultar extends javax.swing.JFrame {
 
     /**
      * Creates new form Mostrar_Equipos
      */
-    boolean validar = false;
+    boolean validarEquipo = false;
 
     /**
      *
      */
-    public FrameEliminar() {
+    public FrameConsultar() {
         initComponents();
     }
 
@@ -31,9 +25,9 @@ public class FrameEliminar extends javax.swing.JFrame {
      *
      * @param validar
      */
-    public FrameEliminar(boolean validar) {
+    public FrameConsultar(boolean validar) {
         initComponents();
-        this.validar = validar;
+        this.validarEquipo = validar;
     }
 
     /**
@@ -45,10 +39,10 @@ public class FrameEliminar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel_mostrar = new EstablecerFondo("/imagenes/fondo1.jpg");
+        panel_mostrar = new Controlador.EstablecerFondo("/imagenes/fondo1.jpg");
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_Eq = new javax.swing.JTable();
-        btnElimnar = new javax.swing.JButton();
+        buscar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         mostrar = new javax.swing.JButton();
@@ -70,11 +64,11 @@ public class FrameEliminar extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabla_Eq);
 
-        btnElimnar.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        btnElimnar.setText("Eliminar");
-        btnElimnar.addActionListener(new java.awt.event.ActionListener() {
+        buscar.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        buscar.setText("Buscar");
+        buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnElimnarActionPerformed(evt);
+                buscarActionPerformed(evt);
             }
         });
 
@@ -106,7 +100,7 @@ public class FrameEliminar extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("HP Simplified", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(236, 239, 244));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Eliminar Equipo");
+        jLabel1.setText("Buscar Equipo");
         jPanel1.add(jLabel1);
 
         javax.swing.GroupLayout panel_mostrarLayout = new javax.swing.GroupLayout(panel_mostrar);
@@ -126,7 +120,7 @@ public class FrameEliminar extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(btnElimnar))
+                            .addComponent(buscar))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(15, 15, 15))
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -139,7 +133,7 @@ public class FrameEliminar extends javax.swing.JFrame {
                 .addGroup(panel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnElimnar))
+                    .addComponent(buscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -163,21 +157,16 @@ public class FrameEliminar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnElimnarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimnarActionPerformed
+    private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
         String nombre = txtNombre.getText();
-        ControlEquipo equipoControl = new ControlEquipo();
-        limpiarTabla();
-        equipoControl.eliminarEquipo(nombre);
-    }//GEN-LAST:event_btnElimnarActionPerformed
-
-    /**
-     * Método para Limpiar Tabla
-     */
-    public void limpiarTabla() {
-        DefaultTableModel tableModel = (DefaultTableModel) tabla_Eq.getModel();
-        tableModel.setRowCount(0);
-        tabla_Eq.setModel(tableModel);
-    }
+        ControlEquipo equipo = new ControlEquipo();
+        equipo.consultarEquipo(tabla_Eq, nombre);
+        if (validarEquipo) {
+            FrameActualizar vent = new FrameActualizar(nombre);
+            vent.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_buscarActionPerformed
 
     private void mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarActionPerformed
         ControlEquipo equipo = new ControlEquipo();
@@ -196,8 +185,10 @@ public class FrameEliminar extends javax.swing.JFrame {
         equipo.setVisible(true);
         this.dispose();
     }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnElimnar;
+    private javax.swing.JButton buscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

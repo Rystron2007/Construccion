@@ -1,44 +1,44 @@
- /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Modelo.Interfaces;
 
 import java.util.List;
 
 /**
+ * Interfaz con los Métodos CRUD
  *
  * @author John
  */
 public interface CRUD {
 
     /**
+     * Método para Insertar
      *
-     * @param query
-     * @param objeto
+     * @param query Statement de Inserción
+     * @param objeto Objeto a Insertar.
      */
-    public void registrar(String query, Object objeto);
+    public void insertar(String query, Object objeto);
 
     /**
+     * Método para Consultar
      *
-     * @param query
+     * @param query Statement de Consulta
      * @return
      */
-    public List buscar(String query);
+    public List consultar(String query);
 
     /**
+     * Método para Actualizar
      *
-     * @param query
-     * @param objeto
-     * @param objetoDos
+     * @param query Statement de Actualización
+     * @param objeto Objeto a Actualizar
+     * @param objetoDos Objeto a Comparar
      */
-    public void modificar(String query, Object objeto, Object objetoDos);
+    public void actualizar(String query, Object objeto, Object objetoDos);
 
     /**
+     * Método para Insertar
      *
-     * @param query
-     * @param ob
+     * @param query Statement de Eliminación
+     * @param objeto Objeto a Eliminar.
      */
-    public void remover(String query, Object ob);
+    public void eliminar(String query, Object objeto);
 }

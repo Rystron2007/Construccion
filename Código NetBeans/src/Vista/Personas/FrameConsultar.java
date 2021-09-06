@@ -3,27 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vista.Equipo;
+package Vista.Personas;
 
 import Controlador.*;
-import javax.swing.table.DefaultTableModel;
 
 /**
- * Frame para Eliminar los Equipos
- *
+ * Frame para Consultar los Director Técnicos
+ * 
  * @author Lozano
  */
-public class FrameEliminar extends javax.swing.JFrame {
+public class FrameConsultar extends javax.swing.JFrame {
 
     /**
      * Creates new form Mostrar_Equipos
      */
-    boolean validar = false;
+    boolean validarDT = false;
 
     /**
      *
      */
-    public FrameEliminar() {
+    public FrameConsultar() {
         initComponents();
     }
 
@@ -31,9 +30,9 @@ public class FrameEliminar extends javax.swing.JFrame {
      *
      * @param validar
      */
-    public FrameEliminar(boolean validar) {
+    public FrameConsultar(boolean validar) {
         initComponents();
-        this.validar = validar;
+        this.validarDT = validar;
     }
 
     /**
@@ -45,44 +44,33 @@ public class FrameEliminar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel_mostrar = new EstablecerFondo("/imagenes/fondo1.jpg");
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabla_Eq = new javax.swing.JTable();
-        btnElimnar = new javax.swing.JButton();
+        panel_mostrar = new Controlador.EstablecerFondo("/imagenes/fondo1.jpg");
+        buscar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
+        txtCedula = new javax.swing.JTextField();
         mostrar = new javax.swing.JButton();
         volver1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabla_Eq = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        tabla_Eq.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        tabla_Eq.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Nombre", "Pais de Origen"
-            }
-        ));
-        jScrollPane1.setViewportView(tabla_Eq);
-
-        btnElimnar.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        btnElimnar.setText("Eliminar");
-        btnElimnar.addActionListener(new java.awt.event.ActionListener() {
+        buscar.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        buscar.setText("Buscar");
+        buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnElimnarActionPerformed(evt);
+                buscarActionPerformed(evt);
             }
         });
 
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jLabel2.setText("Nombre:");
+        jLabel2.setText("Cedula:");
 
-        txtNombre.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtCedula.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtCedula.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         mostrar.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         mostrar.setText("Mostrar todos");
@@ -106,30 +94,45 @@ public class FrameEliminar extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("HP Simplified", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(236, 239, 244));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Eliminar Equipo");
+        jLabel1.setText("Buscar DT");
         jPanel1.add(jLabel1);
+
+        tabla_Eq.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        tabla_Eq.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Cedula", "Nombre", "Apellido", "Edad", "Email", "Equipos Dirigidos"
+            }
+        ));
+        jScrollPane1.setViewportView(tabla_Eq);
 
         javax.swing.GroupLayout panel_mostrarLayout = new javax.swing.GroupLayout(panel_mostrar);
         panel_mostrar.setLayout(panel_mostrarLayout);
         panel_mostrarLayout.setHorizontalGroup(
             panel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_mostrarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(panel_mostrarLayout.createSequentialGroup()
-                        .addComponent(mostrar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(volver1))
-                    .addGroup(panel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panel_mostrarLayout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(btnElimnar))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(15, 15, 15))
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panel_mostrarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_mostrarLayout.createSequentialGroup()
+                        .addGroup(panel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panel_mostrarLayout.createSequentialGroup()
+                                .addComponent(mostrar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(volver1))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_mostrarLayout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(buscar)))
+                        .addGap(15, 15, 15))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_mostrarLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 968, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         panel_mostrarLayout.setVerticalGroup(
             panel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,14 +141,14 @@ public class FrameEliminar extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(panel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnElimnar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(mostrar)
-                    .addComponent(volver1))
+                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscar))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(panel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(volver1)
+                    .addComponent(mostrar))
                 .addGap(15, 15, 15))
         );
 
@@ -163,25 +166,20 @@ public class FrameEliminar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnElimnarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimnarActionPerformed
-        String nombre = txtNombre.getText();
-        ControlEquipo equipoControl = new ControlEquipo();
-        limpiarTabla();
-        equipoControl.eliminarEquipo(nombre);
-    }//GEN-LAST:event_btnElimnarActionPerformed
-
-    /**
-     * Método para Limpiar Tabla
-     */
-    public void limpiarTabla() {
-        DefaultTableModel tableModel = (DefaultTableModel) tabla_Eq.getModel();
-        tableModel.setRowCount(0);
-        tabla_Eq.setModel(tableModel);
-    }
+    private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
+        String cedula = txtCedula.getText();
+        ControlDirector Dt = new ControlDirector();
+        validarDT = Dt.consultarPersona(tabla_Eq, cedula);
+        if (validarDT) {
+            FrameActualizar modDT = new FrameActualizar(cedula);
+            modDT.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_buscarActionPerformed
 
     private void mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarActionPerformed
-        ControlEquipo equipo = new ControlEquipo();
-        equipo.listarEquipo(tabla_Eq);
+        ControlDirector Dt = new ControlDirector();
+        Dt.listarDirector(tabla_Eq);
     }//GEN-LAST:event_mostrarActionPerformed
 
     private void volver1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volver1ActionPerformed
@@ -189,15 +187,17 @@ public class FrameEliminar extends javax.swing.JFrame {
     }//GEN-LAST:event_volver1ActionPerformed
 
     /**
-     * Método para Cerrar una Ventana
+     *
      */
     public void cerrarVentana() {
-        FramePrincipal equipo = new FramePrincipal();
-        equipo.setVisible(true);
+        FramePrincipal volver = new FramePrincipal();
+        volver.setVisible(true);
         this.dispose();
     }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnElimnar;
+    private javax.swing.JButton buscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -205,7 +205,7 @@ public class FrameEliminar extends javax.swing.JFrame {
     private javax.swing.JButton mostrar;
     private javax.swing.JPanel panel_mostrar;
     private javax.swing.JTable tabla_Eq;
-    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtCedula;
     private javax.swing.JButton volver1;
     // End of variables declaration//GEN-END:variables
 }

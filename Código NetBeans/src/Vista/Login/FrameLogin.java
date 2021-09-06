@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vista.Login;
 
 import Modelo.DataBase.Conexion;
-import Vista.Equipo.FrameEquipo;
 
 /**
+ * Frame para Iniciar Sesión al Sistema
  *
  * @author John
  */
@@ -189,10 +184,10 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
-        Conexion.iniciarDatos(txtUsuario.getText(),txtContraseña.getText());
+        Conexion.iniciarDatos(txtUsuario.getText(), txtContraseña.getText());
         if (Conexion.establecerConexion() != null) {
-            FrameEquipo equipo = new FrameEquipo();
-            equipo.setVisible(true);
+            FrameOpciones opcion = new FrameOpciones();
+            opcion.setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_btnIngresarActionPerformed

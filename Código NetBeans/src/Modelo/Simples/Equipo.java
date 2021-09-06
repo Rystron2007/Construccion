@@ -1,6 +1,7 @@
 package Modelo.Simples;
 
 /**
+ * Clase Básica de Equipo
  *
  * @author John
  */
@@ -10,9 +11,10 @@ public class Equipo {
     private String paisOrigen;
 
     /**
-     * Constructor Parametrizado
-     * @param nombreEquipo
-     * @param paisOrigen
+     * Constructor con Parámetros
+     *
+     * @param nombreEquipo Nombre del Equipo
+     * @param paisOrigen País de Origen del Equipo
      */
     public Equipo(String nombreEquipo, String paisOrigen) {
         this.nombreEquipo = nombreEquipo;
@@ -20,40 +22,25 @@ public class Equipo {
     }
 
     /**
-     * Constructor sin Parametros
+     * Constructor sin Parámetros
      */
     public Equipo() {
     }
 
-    /**
-     * Obtiene el Nombre del Equipo
-     * @return
-     */
     public String getNombreEquipo() {
         return nombreEquipo;
     }
 
-    /**
-     * Inserta el Nombre del Equipo
-     * @param nombreEquipo
-     */
     public void setNombreEquipo(String nombreEquipo) {
         this.nombreEquipo = nombreEquipo;
     }
 
-    /**
-     * Obtiene el Pais de Origen
-     * @return
-     */
     public String getPaisOrigen() {
         return paisOrigen;
     }
 
-    /**
-     * Inserta el Pais de Origen
-     * @param paisOrigen
-     */
     public void setPaisOrigen(String paisOrigen) {
         this.paisOrigen = paisOrigen;
     }
+
 }
